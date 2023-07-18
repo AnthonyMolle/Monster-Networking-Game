@@ -2458,8 +2458,9 @@ MonoBehaviour:
   sentences:
   - Yooooo you seem pretty cool man!
   - Do you wanna go grab a bite right now?>
-  - Lets-a-go!
+  - Lets-a-go!<0
   - Mamma mia..... :~(
+  - woooo you made it
   exhaustedSentences: []
   voiceClips: []
   choiceButtons:

@@ -30,6 +30,8 @@ public class DialogueManager : MonoBehaviour
     private bool textTyping = false;
     private bool typingInterrupted = false;
     private bool choosing = false;
+    private bool redirecting = false;
+    private bool sentenceComplete = false;
 
     public void StartDialogue()
     {
@@ -45,6 +47,8 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator DialogueLoop()
     {
+        sentenceComplete = false;
+        float tempSpeed = textSpeed;
         textTyping = true;
         charIndex = 0;
         textObject.text = "";
@@ -52,13 +56,17 @@ public class DialogueManager : MonoBehaviour
         {
             if (textTyping == false)
             {
-                textObject.text = sentences[sentenceIndex];
-                charIndex = sentences[sentenceIndex].Length;
-                break;
+                textSpeed = 0;
             }
 
             if (sentences[sentenceIndex][charIndex] != ">"[0])
             {
+                if (sentences[sentenceIndex][charIndex] == "<"[0])
+                {
+                    sentenceIndex = int.Parse(sentences[sentenceIndex].Substring(charIndex + 1));
+                    redirecting = true;
+                    break;
+                }
                 yield return new WaitForSeconds(textSpeed);
                 textObject.text += sentences[sentenceIndex][charIndex];
                 if (sentences[sentenceIndex][charIndex] == '.')
@@ -66,20 +74,33 @@ public class DialogueManager : MonoBehaviour
                     yield return new WaitForSeconds(textPauseSpeed);
                 }
             }
+            else
+            {
+                PresentChoices();
+                break;
+            }
             charIndex += 1;
         }
 
-        if (sentences[sentenceIndex][charIndex - 1] == '>')
-        {
-            textObject.text = textObject.text.Substring(0, textObject.text.Length - 1);
-            PresentChoices();
-            //FindObjectOfType<PlayerController>().ReactivatePlayer();
-        }
-        else
+        textSpeed = tempSpeed;
+        
+        if (!redirecting && !choosing)
         {
             sentenceIndex += 1;
             textTyping = false;
         }
+        else if (redirecting)
+        {
+            redirecting = false;
+            buttonListIndex -= 1;
+            textTyping = false;
+        }
+        else
+        {
+            textTyping = false;
+        }
+
+        sentenceComplete = true;
     }
 
     public bool NextSentence()
@@ -124,11 +145,15 @@ public class DialogueManager : MonoBehaviour
             {
                 textTyping = false;
             }
-            else if (NextSentence() == false)
+
+            else if (sentenceComplete)
             {
-                textObject.text = "";
-                //reset ui elements
-                FindObjectOfType<PlayerController>().ReactivatePlayer();
+                if (NextSentence() == false)
+                {
+                    textObject.text = "";
+                    //reset ui elements
+                    FindObjectOfType<PlayerController>().ReactivatePlayer();
+                }
             }
         }
     }
