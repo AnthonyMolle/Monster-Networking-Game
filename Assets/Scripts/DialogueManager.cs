@@ -29,6 +29,7 @@ public class DialogueManager : MonoBehaviour
 
     private bool textTyping = false;
     private bool typingInterrupted = false;
+    private bool choosing = false;
 
     public void StartDialogue()
     {
@@ -94,6 +95,7 @@ public class DialogueManager : MonoBehaviour
 
     private void PresentChoices()
     {
+        choosing = true;
         for (int buttonIndex = 0; buttonIndex < choiceButtons[buttonListIndex].buttons.Length; buttonIndex += 1)
         {
             choiceButtons[buttonListIndex].buttons[buttonIndex].SetActive(true);
@@ -110,20 +112,24 @@ public class DialogueManager : MonoBehaviour
         buttonListIndex += 1;
 
         sentenceIndex = sendToIndex;
+        choosing = false;
         StartCoroutine(DialogueLoop());
     }
 
     public void SendInput()
     {
-        if (textTyping)
+        if (!choosing)
         {
-            textTyping = false;
-        }
-        else if (NextSentence() == false)
-        {
-            textObject.text = "";
-            //reset ui elements
-            FindObjectOfType<PlayerController>().ReactivatePlayer();
+            if (textTyping)
+            {
+                textTyping = false;
+            }
+            else if (NextSentence() == false)
+            {
+                textObject.text = "";
+                //reset ui elements
+                FindObjectOfType<PlayerController>().ReactivatePlayer();
+            }
         }
     }
 }
