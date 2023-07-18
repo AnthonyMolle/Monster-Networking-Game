@@ -11,12 +11,21 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] string[] exhaustedSentences;
     [SerializeField] AudioSource[] voiceClips;
 
+    [System.Serializable]
+    public class ChoiceButtons
+    {
+        public GameObject[] buttons;
+    }
+
+    public ChoiceButtons[] choiceButtons;
+
     [SerializeField] float textSpeed;
     [SerializeField] float textPauseSpeed;
     [SerializeField] float startDelay;
 
     private int charIndex = 0;
     private int sentenceIndex = 0;
+    private int buttonListIndex = 0;
 
     private bool textTyping = false;
     private bool typingInterrupted = false;
@@ -85,11 +94,21 @@ public class DialogueManager : MonoBehaviour
 
     private void PresentChoices()
     {
-        // do some ui thing
+        for (int buttonIndex = 0; buttonIndex < choiceButtons[buttonListIndex].buttons.Length; buttonIndex += 1)
+        {
+            choiceButtons[buttonListIndex].buttons[buttonIndex].SetActive(true);
+        }
     }
 
     public void Choose(int sendToIndex)
     {
+        for (int buttonIndex = 0; buttonIndex < choiceButtons[buttonListIndex].buttons.Length; buttonIndex += 1)
+        {
+            choiceButtons[buttonListIndex].buttons[buttonIndex].SetActive(false);
+        }
+
+        buttonListIndex += 1;
+
         sentenceIndex = sendToIndex;
         StartCoroutine(DialogueLoop());
     }
