@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float moveSpeed = 10;
     [SerializeField] float acceleration = 100;
 
+    DialogueManager dm;
+
     Transform camTransform;
 
     float xRotation = 0f;
@@ -22,6 +24,9 @@ public class PlayerController : MonoBehaviour
 
     CinemachineVirtualCamera outerCamera;
     public bool canInteract = false;
+
+    public TextAsset NPCDialogue;
+    public NPC ActiveNPC;
 
     private void Awake() 
     {
@@ -38,6 +43,7 @@ public class PlayerController : MonoBehaviour
         playerVCAM.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = mouseSensitivity;
 
         rb = GetComponent<Rigidbody>();
+        dm = FindObjectOfType<DialogueManager>();
         // xRotation = gameObject.transform.rotation.eulerAngles.x;
         // yRotation = gameObject.transform.rotation.eulerAngles.y; // angles may be off
     }
@@ -50,11 +56,18 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E) && canInteract)
             {
                 outerCamera.gameObject.SetActive(true);
-                outerCamera.gameObject.GetComponentInParent<DialogueManager>().StartDialogue();
                 controlsActive = false;
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 // make player invisible someway somhow
+                if (NPCDialogue != null)
+                {
+                    dm.InitializeDialogue(NPCDialogue, ActiveNPC);
+                }
+                else
+                {
+                    Debug.Log("dialogue not found");
+                }
             }
 
             transform.rotation = Quaternion.Euler(0, camTransform.rotation.eulerAngles.y, 0);
@@ -66,7 +79,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                outerCamera.gameObject.GetComponentInParent<DialogueManager>().SendInput();
+                //outerCamera.gameObject.GetComponentInParent<DialogueManager>().SendInput();
             }
         }
     }

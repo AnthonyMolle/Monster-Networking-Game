@@ -2,159 +2,96 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Ink.Runtime;
+using Unity.VisualScripting;
 
 public class DialogueManager : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI textObject;
+    [Header("UI References")]
+    [SerializeField] GameObject dialogueBox;
+    [SerializeField] Animator dialogueBoxAnimator;
+    [SerializeField] TextMeshProUGUI dialogueText;
+    [SerializeField] TextMeshProUGUI nameText;
 
-    [SerializeField] string[] sentences;
-    [SerializeField] string[] exhaustedSentences;
-    [SerializeField] AudioSource[] voiceClips;
+    [SerializeField] float timeBetweenCharacters = 0.1f;
+    
 
-    [System.Serializable]
-    public class ChoiceButtons
+    private Story currentStory;
+    private NPC currentNPC;
+
+    private void Start()
     {
-        public GameObject[] buttons;
+        dialogueBox.SetActive(false);
+        dialogueText.text = "";
+        nameText.text = "";
     }
 
-    public ChoiceButtons[] choiceButtons;
+    bool skipDialogue = false;
 
-    [SerializeField] float textSpeed;
-    [SerializeField] float textPauseSpeed;
-    [SerializeField] float startDelay;
+    private void Update()
+    {
+        if (awaitingPlayerContinue)
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                StartDialogue();
+            }
+        }
+        else if (dialoguePlaying)
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                skipDialogue = true;
+            }
+        }
+    }
 
-    private int charIndex = 0;
-    private int sentenceIndex = 0;
-    private int buttonListIndex = 0;
-
-    private bool textTyping = false;
-    private bool typingInterrupted = false;
-    private bool choosing = false;
-    private bool redirecting = false;
-    private bool sentenceComplete = false;
+    public void InitializeDialogue(TextAsset inkDialogue, NPC sendingNPC)
+    {
+        dialogueBox.SetActive(true);
+        currentStory = new Story(inkDialogue.text);
+        currentNPC = sendingNPC;
+    }
 
     public void StartDialogue()
     {
-        StartCoroutine(DialogueStartup());
-    }
-
-    private IEnumerator DialogueStartup()
-    {
-        //ui initialization stuff
-        yield return new WaitForSeconds(startDelay);
         StartCoroutine(DialogueLoop());
     }
+
+    bool awaitingPlayerContinue = false;
+    bool dialoguePlaying = false;
 
     private IEnumerator DialogueLoop()
     {
-        sentenceComplete = false;
-        float tempSpeed = textSpeed;
-        textTyping = true;
-        charIndex = 0;
-        textObject.text = "";
-        while (charIndex < sentences[sentenceIndex].Length)
-        {
-            if (textTyping == false)
-            {
-                textSpeed = 0;
-            }
+        dialogueText.text = currentStory.Continue();
+        dialogueText.maxVisibleCharacters = 0;
+        awaitingPlayerContinue = false;
+        dialoguePlaying = true;
 
-            if (sentences[sentenceIndex][charIndex] != ">"[0])
+        foreach (char character in dialogueText.text.ToCharArray())
+        {
+            if (skipDialogue)
             {
-                if (sentences[sentenceIndex][charIndex] == "<"[0])
-                {
-                    sentenceIndex = int.Parse(sentences[sentenceIndex].Substring(charIndex + 1));
-                    redirecting = true;
-                    break;
-                }
-                yield return new WaitForSeconds(textSpeed);
-                textObject.text += sentences[sentenceIndex][charIndex];
-                if (sentences[sentenceIndex][charIndex] == '.')
-                {
-                    yield return new WaitForSeconds(textPauseSpeed);
-                }
-            }
-            else
-            {
-                PresentChoices();
+                dialogueText.maxVisibleCharacters = dialogueText.text.ToCharArray().Length;
+                skipDialogue = false;
                 break;
             }
-            charIndex += 1;
+
+            dialogueText.maxVisibleCharacters += 1;
+            yield return new WaitForSeconds(timeBetweenCharacters);
         }
 
-        textSpeed = tempSpeed;
-        
-        if (!redirecting && !choosing)
-        {
-            sentenceIndex += 1;
-            textTyping = false;
-        }
-        else if (redirecting)
-        {
-            redirecting = false;
-            buttonListIndex -= 1;
-            textTyping = false;
-        }
-        else
-        {
-            textTyping = false;
-        }
-
-        sentenceComplete = true;
+        awaitingPlayerContinue = true;
+        dialoguePlaying = false;
     }
 
-    public bool NextSentence()
+    public void EndDialogue()
     {
-        if (sentenceIndex < sentences.Length)
-        {
-            StartCoroutine(DialogueLoop());
-            return true;
-        }
-
-        return false;
+        dialogueBoxAnimator.Play("DialogueBoxExit");
     }
 
-    private void PresentChoices()
+    public void DeactivateDialogueBox()
     {
-        choosing = true;
-        for (int buttonIndex = 0; buttonIndex < choiceButtons[buttonListIndex].buttons.Length; buttonIndex += 1)
-        {
-            choiceButtons[buttonListIndex].buttons[buttonIndex].SetActive(true);
-        }
-    }
-
-    public void Choose(int sendToIndex)
-    {
-        for (int buttonIndex = 0; buttonIndex < choiceButtons[buttonListIndex].buttons.Length; buttonIndex += 1)
-        {
-            choiceButtons[buttonListIndex].buttons[buttonIndex].SetActive(false);
-        }
-
-        buttonListIndex += 1;
-
-        sentenceIndex = sendToIndex;
-        choosing = false;
-        StartCoroutine(DialogueLoop());
-    }
-
-    public void SendInput()
-    {
-        if (!choosing)
-        {
-            if (textTyping)
-            {
-                textTyping = false;
-            }
-
-            else if (sentenceComplete)
-            {
-                if (NextSentence() == false)
-                {
-                    textObject.text = "";
-                    //reset ui elements
-                    FindObjectOfType<PlayerController>().ReactivatePlayer();
-                }
-            }
-        }
+        dialogueBox.SetActive(false);
     }
 }
