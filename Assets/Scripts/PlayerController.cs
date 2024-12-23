@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float moveSpeed = 10;
     [SerializeField] float acceleration = 100;
 
-    DialogueManager dm;
+    //DialogueManager dm;
 
     Transform camTransform;
 
@@ -26,8 +26,8 @@ public class PlayerController : MonoBehaviour
     CinemachineVirtualCamera outerCamera;
     public bool canInteract = false;
 
-    public TextAsset NPCDialogue;
-    public NPC ActiveNPC;
+    //public TextAsset NPCDialogue;
+    public NPC activeNPC;
 
     private void Awake() 
     {
@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
         playerVCAM.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = mouseSensitivity;
 
         rb = GetComponent<Rigidbody>();
-        dm = FindObjectOfType<DialogueManager>();
+        //dm = FindObjectOfType<DialogueManager>();
         // xRotation = gameObject.transform.rotation.eulerAngles.x;
         // yRotation = gameObject.transform.rotation.eulerAngles.y; // angles may be off
     }
@@ -56,19 +56,15 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E) && canInteract)
             {
-                outerCamera.gameObject.SetActive(true);
-                controlsActive = false;
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                mr.enabled = false;
+                DeactivatePlayer();
                 
-                if (NPCDialogue != null)
+                if (activeNPC != null)
                 {
-                    dm.InitializeDialogue(NPCDialogue, ActiveNPC);
+                    activeNPC.SendDialogue();
                 }
                 else
                 {
-                    Debug.Log("dialogue not found");
+                    Debug.Log("npc not found, caninteract should be false but wasnt");
                 }
             }
 
@@ -113,10 +109,24 @@ public class PlayerController : MonoBehaviour
         canInteract = false;
     }
 
+    public void DeactivatePlayer()
+    {
+        if (outerCamera != null)
+        {
+            outerCamera.gameObject.SetActive(true);
+        }
+        controlsActive = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        mr.enabled = false;
+    }
     public void ReactivatePlayer()
     {
         controlsActive = true;
-        outerCamera.gameObject.SetActive(false);
+        if (outerCamera != null)
+        {
+            outerCamera.gameObject.SetActive(false);
+        }
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         mr.enabled = true;

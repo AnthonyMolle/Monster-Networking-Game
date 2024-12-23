@@ -7,14 +7,23 @@ using Unity.VisualScripting;
 public class NPC : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera dialogueCam;
-    [SerializeField] TextAsset dialogue;
-    private PlayerController player;
+    [SerializeField] public TextAsset mainDialogue;
+    [SerializeField] public TextAsset tryAgainDialogue;
+    [SerializeField] public TextAsset winDialogue;
+    [SerializeField] public TextAsset exhaustedDialogue;
 
-    bool dialogueExhausted = false;
+    [SerializeField] CombatManager personalCM;
+
+    public bool exhausted = false;
+    public bool tryAgain = false;
+    public bool won = false;
+
+    private PlayerController player;
+    private DialogueManager dm;
 
     private void Start() 
     {
-        //dialogue = GetComponent<DialogueManager>();    
+        dm = FindObjectOfType<DialogueManager>();    
     }
 
     private void OnTriggerEnter(Collider other) 
@@ -24,8 +33,8 @@ public class NPC : MonoBehaviour
         if (player != null)
         {
             player.SetInteractable(dialogueCam);
-            player.NPCDialogue = dialogue;
-            player.ActiveNPC = this;
+            //player.NPCDialogue = dialogue;
+            player.activeNPC = this;
         }
     }
     
@@ -34,9 +43,35 @@ public class NPC : MonoBehaviour
         if (player != null)
         {
             player.ResetInteractable();
-            player.NPCDialogue = null;
-            player.ActiveNPC = null;
+            //player.NPCDialogue = null;
+            player.activeNPC = null;
             player = null;
         }    
+    }
+
+    public void SendDialogue()
+    {
+        if (exhausted)
+        {
+            dm.InitializeDialogue(exhaustedDialogue, this);
+        }
+        else if (won)
+        {
+            dm.InitializeDialogue(winDialogue, this);
+        }
+        else if (tryAgain)
+        {
+            dm.InitializeDialogue(tryAgainDialogue, this);
+        }
+        else
+        {
+            dm.InitializeDialogue(mainDialogue, this);
+        }
+        
+    }
+
+    public void StartCombat()
+    {
+        personalCM.StartCombat();
     }
 }

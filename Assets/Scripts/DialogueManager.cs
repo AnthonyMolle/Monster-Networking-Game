@@ -61,18 +61,36 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void InitializeDialogue(TextAsset inkDialogue, NPC sendingNPC)
+    public void InitializeDialogue(TextAsset inkDialogue, NPC sendingNPC = null)
     {
         dialogueBox.SetActive(true);
         currentStory = new Story(inkDialogue.text);
-        currentNPC = sendingNPC;
 
-        currentStory.BindExternalFunction("NextDialogue", () => 
+        if (sendingNPC != null)
         {
-            
+            currentNPC = sendingNPC;
+            currentStory.BindExternalFunction("StartCombat", () => 
+            {
+                currentNPC.StartCombat();
+            });
+
+            currentStory.BindExternalFunction("ExhaustDialogue", () => 
+            {
+                currentNPC.exhausted = true;
+            });
+        }
+        else
+        {
+            currentNPC = null;
+        }
+
+        currentStory.BindExternalFunction("ReactivatePlayer", () => 
+        {
+            pc.ReactivatePlayer();
         });
     }
 
+    // start dialogue is called in an animation event on the dialogue box at the end of its spawn in animation
     public void StartDialogue()
     {
         if (currentStory.canContinue)
@@ -153,7 +171,6 @@ public class DialogueManager : MonoBehaviour
     public void EndDialogue()
     {
         dialogueBoxAnimator.Play("DialogueBoxExit");
-        pc.ReactivatePlayer();
     }
 
     public void DeactivateDialogueBox()

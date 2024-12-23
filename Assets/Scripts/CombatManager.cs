@@ -4,15 +4,43 @@ using UnityEngine;
 
 public class CombatManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] NPC attachedNPC;
+    [SerializeField] GameObject cardDisplayObject;
+
+    //TEMP FOR TESTING
+    [SerializeField] GameObject uiCombat;
+
+    public void StartCombat()
     {
-        
+        //TEMP FOR TESTING
+        uiCombat.SetActive(true);
+        //FindObjectOfType<PlayerController>().DeactivatePlayer();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Win()
     {
-        
+        attachedNPC.won = true;
+        cardDisplayObject.SetActive(true);
+        cardDisplayObject.GetComponent<CardDisplay>().InitializeCardDisplay(this);
+    }
+
+    public void Lose()
+    {
+        EndCombat();
+        attachedNPC.tryAgain = true;
+        attachedNPC.SendDialogue();
+    }
+
+    public void EndCombat()
+    {
+        // exit combat somehow
+        if (attachedNPC.won == true)
+        {
+            attachedNPC.SendDialogue();
+        }
+
+        //TEMP TEST
+        uiCombat.SetActive(false);
+        //FindObjectOfType<PlayerController>().ReactivatePlayer();
     }
 }
