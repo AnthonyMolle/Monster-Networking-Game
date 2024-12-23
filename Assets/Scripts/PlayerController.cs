@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera playerVCAM;
     [SerializeField] Rigidbody rb;
+    [SerializeField] MeshRenderer mr;
     [SerializeField] float mouseSensitivity = 300;
     [SerializeField] float moveSpeed = 10;
     [SerializeField] float acceleration = 100;
@@ -59,7 +60,8 @@ public class PlayerController : MonoBehaviour
                 controlsActive = false;
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-                // make player invisible someway somhow
+                mr.enabled = false;
+                
                 if (NPCDialogue != null)
                 {
                     dm.InitializeDialogue(NPCDialogue, ActiveNPC);
@@ -117,5 +119,6 @@ public class PlayerController : MonoBehaviour
         outerCamera.gameObject.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        mr.enabled = true;
     }
 }

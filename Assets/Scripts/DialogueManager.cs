@@ -13,6 +13,11 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI dialogueText;
     [SerializeField] TextMeshProUGUI nameText;
 
+    [SerializeField] GameObject[] choiceButtons;
+    TextMeshProUGUI[] choiceText;
+
+    [SerializeField] PlayerController pc;
+
     [SerializeField] float timeBetweenCharacters = 0.1f;
     
 
@@ -21,6 +26,16 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
+        choiceText = new TextMeshProUGUI[choiceButtons.Length];
+
+        int i = 0;
+        foreach(GameObject choiceButton in choiceButtons)
+        {
+            choiceText[i] = choiceButton.GetComponentInChildren<TextMeshProUGUI>();
+            choiceButton.SetActive(false);
+            i++;
+        }
+
         dialogueBox.SetActive(false);
         dialogueText.text = "";
         nameText.text = "";
@@ -51,11 +66,23 @@ public class DialogueManager : MonoBehaviour
         dialogueBox.SetActive(true);
         currentStory = new Story(inkDialogue.text);
         currentNPC = sendingNPC;
+
+        currentStory.BindExternalFunction("NextDialogue", () => 
+        {
+            
+        });
     }
 
     public void StartDialogue()
     {
-        StartCoroutine(DialogueLoop());
+        if (currentStory.canContinue)
+        {
+            StartCoroutine(DialogueLoop());
+        }
+        else
+        {
+            EndDialogue();
+        }
     }
 
     bool awaitingPlayerContinue = false;
@@ -81,13 +108,52 @@ public class DialogueManager : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenCharacters);
         }
 
-        awaitingPlayerContinue = true;
-        dialoguePlaying = false;
+        if (currentStory.currentChoices.Count > 0)
+        {
+            dialoguePlaying = false;
+            DisplayChoices();
+        }
+        else if (!currentStory.canContinue)
+        {
+            EndDialogue();
+        }
+        else
+        {
+            awaitingPlayerContinue = true;
+            dialoguePlaying = false;
+        }
+    }
+
+    private void DisplayChoices()
+    {
+        for (int i = 0; i < currentStory.currentChoices.Count; i += 1)
+        {
+            choiceButtons[i].SetActive(true);
+            choiceText[i].text = currentStory.currentChoices[i].text;
+        }
+    }
+
+    private void HideChoices()
+    {
+        int i = 0;
+        foreach(GameObject choiceButton in choiceButtons)
+        {
+            choiceButton.SetActive(false);
+            i++;
+        }
+    }
+
+    public void MakeChoice(int choiceIndex)
+    {
+        currentStory.ChooseChoiceIndex(choiceIndex);
+        HideChoices();
+        StartDialogue();
     }
 
     public void EndDialogue()
     {
         dialogueBoxAnimator.Play("DialogueBoxExit");
+        pc.ReactivatePlayer();
     }
 
     public void DeactivateDialogueBox()
