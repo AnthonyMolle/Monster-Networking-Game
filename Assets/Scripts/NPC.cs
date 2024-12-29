@@ -12,11 +12,18 @@ public class NPC : MonoBehaviour
     [SerializeField] public TextAsset winDialogue;
     [SerializeField] public TextAsset exhaustedDialogue;
 
+    [SerializeField] string name;
+    [SerializeField] string mysteryName = "???";
+
     [SerializeField] CombatManager personalCM;
+
+    [SerializeField] public Mesh cardMesh;
+    [SerializeField] public Material cardMaterial;
 
     public bool exhausted = false;
     public bool tryAgain = false;
     public bool won = false;
+    public bool showName = false;
 
     private PlayerController player;
     private DialogueManager dm;
@@ -51,23 +58,44 @@ public class NPC : MonoBehaviour
 
     public void SendDialogue()
     {
-        if (exhausted)
+        if (showName)
         {
-            dm.InitializeDialogue(exhaustedDialogue, this);
-        }
-        else if (won)
-        {
-            dm.InitializeDialogue(winDialogue, this);
-        }
-        else if (tryAgain)
-        {
-            dm.InitializeDialogue(tryAgainDialogue, this);
+            if (exhausted)
+            {
+                dm.InitializeDialogue(exhaustedDialogue, name, this);
+            }
+            else if (won)
+            {
+                dm.InitializeDialogue(winDialogue, name, this);
+            }
+            else if (tryAgain)
+            {
+                dm.InitializeDialogue(tryAgainDialogue, name, this);
+            }
+            else
+            {
+                dm.InitializeDialogue(mainDialogue, name, this);
+            }
         }
         else
         {
-            dm.InitializeDialogue(mainDialogue, this);
+            if (exhausted)
+            {
+                dm.InitializeDialogue(exhaustedDialogue, mysteryName, this);
+            }
+            else if (won)
+            {
+                dm.InitializeDialogue(winDialogue, mysteryName, this);
+            }
+            else if (tryAgain)
+            {
+                dm.InitializeDialogue(tryAgainDialogue, mysteryName, this);
+            }
+            else
+            {
+                dm.InitializeDialogue(mainDialogue, mysteryName, this);
+            }
         }
-        
     }
 
     public void StartCombat()

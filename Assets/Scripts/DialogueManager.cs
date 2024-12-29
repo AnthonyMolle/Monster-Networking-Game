@@ -61,10 +61,11 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void InitializeDialogue(TextAsset inkDialogue, NPC sendingNPC = null)
+    public void InitializeDialogue(TextAsset inkDialogue, string npcName, NPC sendingNPC = null)
     {
         dialogueBox.SetActive(true);
         currentStory = new Story(inkDialogue.text);
+        nameText.text = npcName;
 
         if (sendingNPC != null)
         {
@@ -77,6 +78,12 @@ public class DialogueManager : MonoBehaviour
             currentStory.BindExternalFunction("ExhaustDialogue", () => 
             {
                 currentNPC.exhausted = true;
+            });
+
+            currentStory.BindExternalFunction("ShowName", (string name) => 
+            {
+                nameText.text = name;
+                currentNPC.showName = true;
             });
         }
         else

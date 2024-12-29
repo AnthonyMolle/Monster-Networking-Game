@@ -38,7 +38,7 @@ public class CombatManager : MonoBehaviour
     {
         attachedNPC.won = true;
         cardDisplayObject.SetActive(true);
-        cardDisplayObject.GetComponent<CardDisplay>().InitializeCardDisplay(this);
+        cardDisplayObject.GetComponent<CardDisplay>().InitializeCardDisplay(this, attachedNPC.cardMesh, attachedNPC.cardMaterial);
     }
 
     public void Lose()

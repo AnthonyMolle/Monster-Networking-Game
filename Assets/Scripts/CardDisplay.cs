@@ -10,12 +10,12 @@ public class CardDisplay : MonoBehaviour
     [SerializeField] MeshFilter cardMeshFilter;
     [SerializeField] Animator cardDisplayAnimator;
 
-    public void InitializeCardDisplay(CombatManager sendingCM, Mesh cardMesh = null, Material cardMat = null)
+    public void InitializeCardDisplay(CombatManager sendingCM, Mesh cardMesh, Material cardMat)
     {
         cm = sendingCM;
 
-        //cardMeshRenderer.material = cardMat;
-        //cardMeshFilter.mesh = cardMesh;
+        cardMeshRenderer.material = cardMat;
+        cardMeshFilter.mesh = cardMesh;
     }
 
     public void StartClose()
