@@ -1,1 +1,1 @@
-﻿{"inkVersion":21,"root":[[{"->":"main"},["done",{"#f":5,"#n":"g-0"}],null],"done",{"main":["^you've exhausted this dialogue","\n","^you cant talk to me anymore!","\n","^go away!","\n","ev",{"x()":"ReactivatePlayer"},"pop","/ev","\n","done",{"#f":1}],"#f":1}],"listDefs":{}}
+﻿{"inkVersion":21,"root":[[{"->":"main"},["done",{"#f":5,"#n":"g-0"}],null],"done",{"main":["^you've exhausted this dialogue","\n","^you cant talk to me anymore!","\n","^go away!","\n","ev",true,{"x()":"ReactivatePlayer","exArgs":1},"pop","/ev","\n","done",{"#f":1}],"#f":1}],"listDefs":{}}

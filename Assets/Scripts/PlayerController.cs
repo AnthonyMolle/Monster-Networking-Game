@@ -6,6 +6,7 @@ using Cinemachine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera playerVCAM;
+    CinemachinePOV playerVCAMPOV;
     [SerializeField] Rigidbody rb;
     [SerializeField] MeshRenderer mr;
     [SerializeField] float mouseSensitivity = 300;
@@ -40,8 +41,9 @@ public class PlayerController : MonoBehaviour
         camTransform = Camera.main.transform;
 
         playerVCAM = GameObject.FindWithTag("PlayerCam").GetComponent<CinemachineVirtualCamera>();
-        playerVCAM.GetCinemachineComponent<CinemachinePOV>().m_HorizontalAxis.m_MaxSpeed = mouseSensitivity;
-        playerVCAM.GetCinemachineComponent<CinemachinePOV>().m_VerticalAxis.m_MaxSpeed = mouseSensitivity;
+        playerVCAMPOV = playerVCAM.GetCinemachineComponent<CinemachinePOV>();
+        playerVCAMPOV.m_HorizontalAxis.m_MaxSpeed = mouseSensitivity;
+        playerVCAMPOV.m_VerticalAxis.m_MaxSpeed = mouseSensitivity;
 
         rb = GetComponent<Rigidbody>();
         //dm = FindObjectOfType<DialogueManager>();
@@ -119,6 +121,9 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         mr.enabled = false;
+
+        playerVCAMPOV.m_HorizontalAxis.m_MaxSpeed = 0;
+        playerVCAMPOV.m_VerticalAxis.m_MaxSpeed = 0;
     }
     public void ReactivatePlayer()
     {
@@ -130,5 +135,33 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         mr.enabled = true;
+
+        playerVCAMPOV.m_HorizontalAxis.m_MaxSpeed = mouseSensitivity;
+        playerVCAMPOV.m_VerticalAxis.m_MaxSpeed = mouseSensitivity;
+    }
+
+    [SerializeField] float reactivationDelay;
+
+    public void ReactivatePlayerDelay()
+    {
+        StartCoroutine(PlayerActivationDelay());
+
+        if (outerCamera != null)
+        {
+            outerCamera.gameObject.SetActive(false);
+        }
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        mr.enabled = true;
+    }
+
+    private IEnumerator PlayerActivationDelay()
+    {
+        yield return new WaitForSeconds(reactivationDelay);
+
+        controlsActive = true;
+        playerVCAMPOV.m_HorizontalAxis.m_MaxSpeed = mouseSensitivity;
+        playerVCAMPOV.m_VerticalAxis.m_MaxSpeed = mouseSensitivity;
     }
 }

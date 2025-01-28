@@ -1,4 +1,4 @@
-EXTERNAL ReactivatePlayer()
+EXTERNAL ReactivatePlayer(delay)
 
 -> main
 
@@ -6,5 +6,5 @@ EXTERNAL ReactivatePlayer()
 you've exhausted this dialogue
 you cant talk to me anymore!
 go away!
-~ ReactivatePlayer()
+~ ReactivatePlayer(true)
 -> DONE

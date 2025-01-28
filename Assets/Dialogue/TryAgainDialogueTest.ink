@@ -1,5 +1,5 @@
 EXTERNAL StartCombat()
-EXTERNAL ReactivatePlayer()
+EXTERNAL ReactivatePlayer(delay)
 -> main
 
 ===main===
@@ -11,5 +11,5 @@ do you want to start combat?
         -> DONE
     + [no]
         another time....
-        ~ ReactivatePlayer()
+        ~ ReactivatePlayer(true)
         -> DONE

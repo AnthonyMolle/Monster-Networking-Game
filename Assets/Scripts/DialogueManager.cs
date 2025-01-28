@@ -9,6 +9,7 @@ public class DialogueManager : MonoBehaviour
 {
     [Header("UI References")]
     [SerializeField] GameObject dialogueBox;
+    [SerializeField] GameObject nameBox;
     [SerializeField] Animator dialogueBoxAnimator;
     [SerializeField] TextMeshProUGUI dialogueText;
     [SerializeField] TextMeshProUGUI nameText;
@@ -61,11 +62,19 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void InitializeDialogue(TextAsset inkDialogue, string npcName, NPC sendingNPC = null)
+    public void InitializeDialogue(TextAsset inkDialogue, string npcName = null, NPC sendingNPC = null)
     {
         dialogueBox.SetActive(true);
         currentStory = new Story(inkDialogue.text);
-        nameText.text = npcName;
+        if (npcName != null)
+        {
+            nameText.text = npcName;
+            nameBox.SetActive(true);
+        }
+        else
+        {
+            nameBox.SetActive(false);
+        }
 
         if (sendingNPC != null)
         {
@@ -91,9 +100,16 @@ public class DialogueManager : MonoBehaviour
             currentNPC = null;
         }
 
-        currentStory.BindExternalFunction("ReactivatePlayer", () => 
+        currentStory.BindExternalFunction("ReactivatePlayer", (bool delay) => 
         {
-            pc.ReactivatePlayer();
+            if (delay)
+            {
+                pc.ReactivatePlayerDelay();
+            }
+            else
+            {
+                pc.ReactivatePlayer();
+            }
         });
     }
 

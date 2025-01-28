@@ -1,5 +1,5 @@
 EXTERNAL ExhaustDialogue()
-EXTERNAL ReactivatePlayer()
+EXTERNAL ReactivatePlayer(delay)
 -> main
 
 ===main===
@@ -7,5 +7,5 @@ you won!
 congrats!
 exhausting dialogue
 ~ ExhaustDialogue()
-~ ReactivatePlayer()
+~ ReactivatePlayer(true)
 -> DONE

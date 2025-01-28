@@ -1,0 +1,1 @@
+﻿{"inkVersion":21,"root":[[{"->":"main"},["done",{"#f":5,"#n":"g-0"}],null],"done",{"main":["^you're having thoughts!","\n","^its you buddy!","\n","^yippe!!","\n","ev",false,{"x()":"ReactivatePlayer","exArgs":1},"pop","/ev","\n","done",{"#f":1}],"#f":1}],"listDefs":{}}
