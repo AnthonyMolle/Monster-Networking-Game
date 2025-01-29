@@ -2,16 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using Unity.Mathematics;
 
-public class PlayerController : MonoBehaviour
+public class DungeonPlayerController : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera playerVCAM;
     CinemachinePOV playerVCAMPOV;
     [SerializeField] Rigidbody rb;
     [SerializeField] MeshRenderer mr;
     [SerializeField] float mouseSensitivity = 300;
+
     [SerializeField] float moveSpeed = 10;
     [SerializeField] float acceleration = 100;
+
+    [SerializeField] float jumpForce = 5f;
+
+    [SerializeField] float fallInitiationSpeed = 0.5f;
+    [SerializeField] float fallGravity = 5f;
+    [SerializeField] float maxFallSpeed = 10f;
+
+    [SerializeField] float coyoteTime = 0.25f;
+
+    [SerializeField] float groundCheckLength = 1f;
+    [SerializeField] LayerMask groundLayers;
+    bool isGrounded;
+    bool jump;
+    bool jumping;
+
+    [SerializeField] float cameraTilt = 5f;
+    [SerializeField] float cameraTiltSpeed = 5f;
 
     Transform camTransform;
 
@@ -22,11 +41,7 @@ public class PlayerController : MonoBehaviour
 
     public bool controlsActive = true;
 
-    CinemachineVirtualCamera outerCamera;
     public bool canInteract = false;
-
-    //public TextAsset NPCDialogue;
-    public NPC activeNPC;
 
     private void Awake() 
     {
@@ -51,26 +66,38 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(isGrounded);
+
         if (controlsActive)
         {
             if (Input.GetKeyDown(KeyCode.E) && canInteract)
             {
-                DeactivatePlayer();
-                
-                if (activeNPC != null)
-                {
-                    activeNPC.SendDialogue();
-                }
-                else
-                {
-                    Debug.Log("npc not found, caninteract should be false but wasnt");
-                }
+                DeactivatePlayer(); // might not need this
+                // i think this will almost exclusively be used for opening chests
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+            {
+                jump = true;
             }
 
             transform.rotation = Quaternion.Euler(0, camTransform.rotation.eulerAngles.y, 0);
 
             horizontalMovement = Input.GetAxisRaw("Horizontal");
             verticalMovement = Input.GetAxisRaw("Vertical");
+
+            if (horizontalMovement > 0.1f)
+            {
+                playerVCAM.m_Lens.Dutch = Mathf.Lerp(playerVCAM.m_Lens.Dutch, -cameraTilt, cameraTiltSpeed * Time.deltaTime);
+            }
+            else if (horizontalMovement < -0.1f)
+            {
+                playerVCAM.m_Lens.Dutch = Mathf.Lerp(playerVCAM.m_Lens.Dutch, cameraTilt, cameraTiltSpeed * Time.deltaTime);
+            }
+            else
+            {
+                playerVCAM.m_Lens.Dutch = Mathf.Lerp(playerVCAM.m_Lens.Dutch, 0, cameraTiltSpeed * Time.deltaTime);
+            }
         }
         else
         {
@@ -91,29 +118,67 @@ public class PlayerController : MonoBehaviour
             if (flatVelocity.magnitude > moveSpeed)
             {
                 Vector3 cappedVelocity = flatVelocity.normalized * moveSpeed;
-                rb.velocity = new Vector3(cappedVelocity.x, 0f, cappedVelocity.z);
+                rb.velocity = new Vector3(cappedVelocity.x, rb.velocity.y, cappedVelocity.z);
+            }
+
+            if (jump)
+            {
+                isGrounded = false;
+                jump = false;
+                jumping = true;
+                Jump();
+            }
+
+            RaycastHit hit; 
+            if (Physics.Raycast(transform.position, -transform.up, out hit, groundCheckLength, groundLayers))
+            {
+                if (!jumping)
+                {
+                    isGrounded = true;
+                }
+            }
+            else
+            {
+                if (isGrounded)
+                {
+                    DoCoyoteTime();
+                }
+                else if (jumping)
+                {
+                    jumping = false;
+                }
             }
         }
     }
 
+    private void Jump()
+    {
+        rb.AddForce(transform.up * jumpForce, ForceMode.Force);
+    }
+
+    private void DoCoyoteTime()
+    {
+        StartCoroutine(CoyoteTimeCoroutine());
+    }
+
+    private IEnumerator CoyoteTimeCoroutine()
+    {
+        yield return new WaitForSeconds(coyoteTime);
+        isGrounded = false;
+    }
+
     public void SetInteractable(CinemachineVirtualCamera cam)
     {
-        outerCamera = cam;
         canInteract = true;
     }
 
     public void ResetInteractable()
     {
-        outerCamera = null;
         canInteract = false;
     }
 
     public void DeactivatePlayer()
     {
-        if (outerCamera != null)
-        {
-            outerCamera.gameObject.SetActive(true);
-        }
         controlsActive = false;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -125,10 +190,6 @@ public class PlayerController : MonoBehaviour
     public void ReactivatePlayer()
     {
         controlsActive = true;
-        if (outerCamera != null)
-        {
-            outerCamera.gameObject.SetActive(false);
-        }
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         mr.enabled = true;
@@ -142,11 +203,6 @@ public class PlayerController : MonoBehaviour
     public void ReactivatePlayerDelay()
     {
         StartCoroutine(PlayerActivationDelay());
-
-        if (outerCamera != null)
-        {
-            outerCamera.gameObject.SetActive(false);
-        }
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
