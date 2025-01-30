@@ -8,30 +8,32 @@ public class CombatManager : MonoBehaviour
 {
     [SerializeField] NPC attachedNPC;
     [SerializeField] GameObject cardDisplayObject;
-    [SerializeField] GameObject combatCam;
-    GameObject preCombatCam;
+    [SerializeField] TransitionScreen transitionScreen;
+    //[SerializeField] GameObject combatCam;
+    [SerializeField] GameObject dungeonPlayer;
+    //GameObject preCombatCam;
 
     public void StartCombat()
     {
-        preCombatCam = CinemachineCore.Instance.GetActiveBrain(0).ActiveVirtualCamera.VirtualCameraGameObject;
-        preCombatCam.SetActive(false);
-        combatCam.SetActive(true);
-        //FindObjectOfType<PlayerController>().DeactivatePlayer();
+        transitionScreen.gameObject.SetActive(true);
+        transitionScreen.cm = this;
+    }
+
+    public void SwapPlayer()
+    {
+        if (dungeonPlayer.activeSelf)
+        {
+            dungeonPlayer.SetActive(false);
+        }
+        else
+        {
+            dungeonPlayer.SetActive(true);
+        }
     }
 
     private void Update()
     {
-        // TESTING PURPOSES
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Win();
-        }
 
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            Lose();
-        }
-        // TESTING PURPOSES
     }
 
     public void Win()
@@ -56,9 +58,7 @@ public class CombatManager : MonoBehaviour
             attachedNPC.SendDialogue();
         }
 
-        combatCam.SetActive(false);
-        preCombatCam.SetActive(true);
-        preCombatCam = null;
+        transitionScreen.gameObject.SetActive(true);
         //FindObjectOfType<PlayerController>().ReactivatePlayer();
     }
 }

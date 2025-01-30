@@ -14,6 +14,7 @@ public class DungeonPlayerController : MonoBehaviour
 
     [SerializeField] float moveSpeed = 10;
     [SerializeField] float acceleration = 100;
+    [SerializeField] float decelerationRate = 10f;
 
     [SerializeField] float jumpForce = 5f;
 
@@ -32,7 +33,10 @@ public class DungeonPlayerController : MonoBehaviour
     [SerializeField] float cameraTilt = 5f;
     [SerializeField] float cameraTiltSpeed = 5f;
 
+    [SerializeField] GameObject heldObject;
+
     Transform camTransform;
+    GameObject camHoldPoint;
 
     float xRotation = 0f;
     float yRotation = 0f;
@@ -52,6 +56,7 @@ public class DungeonPlayerController : MonoBehaviour
     void Start()
     {
         camTransform = Camera.main.transform;
+        camHoldPoint = camTransform.GetChild(0).gameObject;
 
         playerVCAMPOV = playerVCAM.GetCinemachineComponent<CinemachinePOV>();
         playerVCAMPOV.m_HorizontalAxis.m_MaxSpeed = mouseSensitivity;
@@ -98,13 +103,12 @@ public class DungeonPlayerController : MonoBehaviour
             {
                 playerVCAM.m_Lens.Dutch = Mathf.Lerp(playerVCAM.m_Lens.Dutch, 0, cameraTiltSpeed * Time.deltaTime);
             }
+
+            heldObject.transform.rotation = Quaternion.Lerp(heldObject.transform.rotation, camHoldPoint.transform.rotation, 0.1f);
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                //outerCamera.gameObject.GetComponentInParent<DialogueManager>().SendInput();
-            }
+
         }
     }
 
@@ -119,6 +123,34 @@ public class DungeonPlayerController : MonoBehaviour
             {
                 Vector3 cappedVelocity = flatVelocity.normalized * moveSpeed;
                 rb.velocity = new Vector3(cappedVelocity.x, rb.velocity.y, cappedVelocity.z);
+            }
+
+            if (!isGrounded)
+            {
+                if (rb.velocity.y < fallInitiationSpeed)
+                {
+                    if (-rb.velocity.y > maxFallSpeed)
+                    {
+                        rb.velocity = new Vector3(rb.velocity.x,  -maxFallSpeed, rb.velocity.z);
+                    }
+                    else
+                    {
+                        rb.AddForce(-transform.up * fallGravity, ForceMode.Force);
+                    }
+                }
+            }
+            else
+            {
+                if (horizontalMovement < 0.1f && verticalMovement < 0.1f && rb.velocity.magnitude > 0)
+                {
+                    Vector3 decelerationDirection = -(new Vector3(rb.velocity.x, 0, rb.velocity.z)).normalized;
+                    rb.AddForce(decelerationDirection * decelerationRate, ForceMode.Force);
+
+                    if (rb.velocity.magnitude < 0.25f)
+                    {
+                        rb.velocity = new Vector3(0, rb.velocity.y, 0);
+                    }
+                }
             }
 
             if (jump)
@@ -148,12 +180,14 @@ public class DungeonPlayerController : MonoBehaviour
                     jumping = false;
                 }
             }
+
+            heldObject.transform.position = Vector3.Lerp(heldObject.transform.position, camHoldPoint.transform.position, 100f);
         }
     }
 
     private void Jump()
     {
-        rb.AddForce(transform.up * jumpForce, ForceMode.Force);
+        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
 
     private void DoCoyoteTime()

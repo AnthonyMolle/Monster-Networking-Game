@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Lens:
     FieldOfView: 90
     OrthographicSize: 5
-    NearClipPlane: 0.3
+    NearClipPlane: 0.01
     FarClipPlane: 1000
     Dutch: 0
     ModeOverride: 0
@@ -351,7 +351,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6692573155628362059}
-  m_Material: {fileID: 13400000, guid: 8243e5a6499873e499c40a8e3f7c73d2, type: 2}
+  m_Material: {fileID: 13400000, guid: ab11fceebc5dd7f46908e5bcc1dc4c15, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -393,7 +393,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &4080750421862839711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,12 +409,20 @@ MonoBehaviour:
   playerVCAM: {fileID: 932340120151111772}
   rb: {fileID: 7110196733358733048}
   mr: {fileID: 5668890719186531861}
-  mouseSensitivity: 300
+  mouseSensitivity: 1000
   moveSpeed: 10
   acceleration: 100
-  cameraTilt: 3
-  cameraTiltSpeed: 5
-  camHolder: {fileID: 0}
+  jumpForce: 300
+  fallInitiationSpeed: 0.5
+  fallGravity: 5
+  maxFallSpeed: 10
+  coyoteTime: 0.25
+  groundCheckLength: 1.1
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  cameraTilt: 2.5
+  cameraTiltSpeed: 12
   controlsActive: 1
   canInteract: 0
   reactivationDelay: 0
