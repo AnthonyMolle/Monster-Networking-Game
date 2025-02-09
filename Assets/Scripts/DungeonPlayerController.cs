@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using Unity.Mathematics;
+using UnityEngine.InputSystem;
+using Unity.VisualScripting;
 
 public class DungeonPlayerController : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera playerVCAM;
+    [SerializeField] CombatManager combatManager;
+    [SerializeField] Transform spawnPoint;
     CinemachinePOV playerVCAMPOV;
     [SerializeField] Rigidbody rb;
     [SerializeField] MeshRenderer mr;
@@ -35,17 +39,39 @@ public class DungeonPlayerController : MonoBehaviour
 
     [SerializeField] GameObject heldObject;
 
+    [SerializeField] int maxHealth = 5;
+    int currentHealth = 5;
+
     Transform camTransform;
     GameObject camHoldPoint;
-
-    float xRotation = 0f;
-    float yRotation = 0f;
-    float verticalMovement;
-    float horizontalMovement;
 
     public bool controlsActive = true;
 
     public bool canInteract = false;
+
+    #region Input
+
+    PlayerInput playerInput;
+
+    Vector2 movementInput;
+    public void OnMove(InputAction.CallbackContext context) {movementInput = context.ReadValue<Vector2>();}
+
+    Vector2 lookInput;
+    public void OnLook(InputAction.CallbackContext context) {lookInput = context.ReadValue<Vector2>();}
+
+    bool interactPressed;
+    public void OnInteract(InputAction.CallbackContext context) {interactPressed = context.action.triggered;}
+
+    bool jumpPressed;
+    public void OnJump(InputAction.CallbackContext context) {jumpPressed = context.action.triggered;}
+
+    bool actionPrimaryPressed;
+    public void OnPrimary(InputAction.CallbackContext context) {actionPrimaryPressed = context.action.triggered;}
+
+    bool actionSecondaryPressed;
+    public void OnSecondary(InputAction.CallbackContext context) {actionSecondaryPressed = context.action.triggered;}
+
+    #endregion
 
     private void Awake() 
     {
@@ -54,7 +80,7 @@ public class DungeonPlayerController : MonoBehaviour
     }
 
     void Start()
-    {
+    {   
         camTransform = Camera.main.transform;
         camHoldPoint = camTransform.GetChild(0).gameObject;
 
@@ -63,9 +89,17 @@ public class DungeonPlayerController : MonoBehaviour
         playerVCAMPOV.m_VerticalAxis.m_MaxSpeed = mouseSensitivity;
 
         rb = GetComponent<Rigidbody>();
-        //dm = FindObjectOfType<DialogueManager>();
-        // xRotation = gameObject.transform.rotation.eulerAngles.x;
-        // yRotation = gameObject.transform.rotation.eulerAngles.y; // angles may be off
+        playerInput = FindObjectOfType<PlayerInput>();
+
+        // reset everything related to the player and the combat
+        currentHealth = 5;
+        transform.position = spawnPoint.position;
+    }
+
+    void OnEnable()
+    {
+        currentHealth = 5;
+        transform.position = spawnPoint.position;
     }
 
     // Update is called once per frame
@@ -75,27 +109,24 @@ public class DungeonPlayerController : MonoBehaviour
 
         if (controlsActive)
         {
-            if (Input.GetKeyDown(KeyCode.E) && canInteract)
+            if (interactPressed && canInteract)
             {
-                DeactivatePlayer(); // might not need this
-                // i think this will almost exclusively be used for opening chests
+                DeactivatePlayer();
+                combatManager.Win();
             }
 
-            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+            if (jumpPressed && isGrounded)
             {
                 jump = true;
             }
 
             transform.rotation = Quaternion.Euler(0, camTransform.rotation.eulerAngles.y, 0);
 
-            horizontalMovement = Input.GetAxisRaw("Horizontal");
-            verticalMovement = Input.GetAxisRaw("Vertical");
-
-            if (horizontalMovement > 0.1f)
+            if (movementInput.x > 0.1f)
             {
                 playerVCAM.m_Lens.Dutch = Mathf.Lerp(playerVCAM.m_Lens.Dutch, -cameraTilt, cameraTiltSpeed * Time.deltaTime);
             }
-            else if (horizontalMovement < -0.1f)
+            else if (movementInput.x < -0.1f)
             {
                 playerVCAM.m_Lens.Dutch = Mathf.Lerp(playerVCAM.m_Lens.Dutch, cameraTilt, cameraTiltSpeed * Time.deltaTime);
             }
@@ -104,7 +135,7 @@ public class DungeonPlayerController : MonoBehaviour
                 playerVCAM.m_Lens.Dutch = Mathf.Lerp(playerVCAM.m_Lens.Dutch, 0, cameraTiltSpeed * Time.deltaTime);
             }
 
-            heldObject.transform.rotation = Quaternion.Lerp(heldObject.transform.rotation, camHoldPoint.transform.rotation, 0.1f);
+            heldObject.transform.rotation = Quaternion.Lerp(heldObject.transform.rotation, camHoldPoint.transform.rotation, 15f * Time.deltaTime);
         }
         else
         {
@@ -116,7 +147,7 @@ public class DungeonPlayerController : MonoBehaviour
     {
         if (controlsActive)
         {
-            rb.AddForce(((gameObject.transform.forward * verticalMovement) + (gameObject.transform.right * horizontalMovement)).normalized * acceleration, ForceMode.Force);
+            rb.AddForce(((gameObject.transform.forward * movementInput.y) + (gameObject.transform.right * movementInput.x)).normalized * acceleration, ForceMode.Force);
 
             Vector3 flatVelocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
             if (flatVelocity.magnitude > moveSpeed)
@@ -141,7 +172,7 @@ public class DungeonPlayerController : MonoBehaviour
             }
             else
             {
-                if (horizontalMovement < 0.1f && verticalMovement < 0.1f && rb.velocity.magnitude > 0)
+                if (movementInput.y < 0.1f && movementInput.x < 0.1f && rb.velocity.magnitude > 0)
                 {
                     Vector3 decelerationDirection = -(new Vector3(rb.velocity.x, 0, rb.velocity.z)).normalized;
                     rb.AddForce(decelerationDirection * decelerationRate, ForceMode.Force);
@@ -201,14 +232,33 @@ public class DungeonPlayerController : MonoBehaviour
         isGrounded = false;
     }
 
-    public void SetInteractable(CinemachineVirtualCamera cam)
+    public void TakeDamage(int damage)
+    {
+        currentHealth = currentHealth - damage;
+        
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        combatManager.Lose();
+    }
+
+    Chest currentChest;
+
+    public void SetInteractable(Chest chest)
     {
         canInteract = true;
+        currentChest = chest;
     }
 
     public void ResetInteractable()
     {
         canInteract = false;
+        currentChest = null;
     }
 
     public void DeactivatePlayer()

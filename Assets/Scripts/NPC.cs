@@ -100,6 +100,6 @@ public class NPC : MonoBehaviour
 
     public void StartCombat()
     {
-        personalCM.StartCombat();
+        personalCM.StartCombat(player.transform.parent.gameObject);
     }
 }

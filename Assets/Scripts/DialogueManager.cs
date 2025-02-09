@@ -4,6 +4,9 @@ using UnityEngine;
 using TMPro;
 using Ink.Runtime;
 using Unity.VisualScripting;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -14,26 +17,29 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI dialogueText;
     [SerializeField] TextMeshProUGUI nameText;
 
-    [SerializeField] GameObject[] choiceButtons;
+    [SerializeField] Button[] choiceButtons;
     TextMeshProUGUI[] choiceText;
 
     [SerializeField] PlayerController pc;
 
     [SerializeField] float timeBetweenCharacters = 0.1f;
-    
 
     private Story currentStory;
     private NPC currentNPC;
+
+    bool submitPressed;
+    bool submitHeld;
+    public void OnSubmit(InputAction.CallbackContext context) {submitPressed = context.action.triggered;}
 
     private void Start()
     {
         choiceText = new TextMeshProUGUI[choiceButtons.Length];
 
         int i = 0;
-        foreach(GameObject choiceButton in choiceButtons)
+        foreach(Button choiceButton in choiceButtons)
         {
             choiceText[i] = choiceButton.GetComponentInChildren<TextMeshProUGUI>();
-            choiceButton.SetActive(false);
+            choiceButton.gameObject.SetActive(false);
             i++;
         }
 
@@ -48,17 +54,24 @@ public class DialogueManager : MonoBehaviour
     {
         if (awaitingPlayerContinue)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (submitPressed && !submitHeld)
             {
                 StartDialogue();
+                submitHeld = true;
             }
         }
         else if (dialoguePlaying)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (submitPressed && !submitHeld)
             {
                 skipDialogue = true;
+                submitHeld = true;
             }
+        }
+
+        if (submitPressed == false)
+        {
+            submitHeld = false;
         }
     }
 
@@ -167,19 +180,42 @@ public class DialogueManager : MonoBehaviour
 
     private void DisplayChoices()
     {
+        EventSystem.current.SetSelectedGameObject(null);
         for (int i = 0; i < currentStory.currentChoices.Count; i += 1)
         {
-            choiceButtons[i].SetActive(true);
+            Debug.Log("displaying button");
+            choiceButtons[i].gameObject.SetActive(true);
             choiceText[i].text = currentStory.currentChoices[i].text;
+
+            Navigation tempNav = new Navigation();
+            tempNav.mode = Navigation.Mode.Explicit;
+            if (i == 0)
+            {
+                tempNav.selectOnUp = choiceButtons[i + 1];
+                tempNav.selectOnDown = choiceButtons[currentStory.currentChoices.Count - 1];
+            }
+            else if (i == currentStory.currentChoices.Count - 1)
+            {
+                tempNav.selectOnUp = choiceButtons[0];
+                tempNav.selectOnDown = choiceButtons[i - 1];
+            }
+            else
+            {
+                tempNav.selectOnUp = choiceButtons[i + 1];
+                tempNav.selectOnDown = choiceButtons[i - 1];
+            }
+
+            choiceButtons[i].navigation = tempNav;
         }
+        EventSystem.current.SetSelectedGameObject(choiceButtons[currentStory.currentChoices.Count - 1].gameObject);
     }
 
     private void HideChoices()
     {
         int i = 0;
-        foreach(GameObject choiceButton in choiceButtons)
+        foreach(Button choiceButton in choiceButtons)
         {
-            choiceButton.SetActive(false);
+            choiceButton.gameObject.SetActive(false);
             i++;
         }
     }

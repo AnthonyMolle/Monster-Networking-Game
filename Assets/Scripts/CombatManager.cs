@@ -11,12 +11,14 @@ public class CombatManager : MonoBehaviour
     [SerializeField] TransitionScreen transitionScreen;
     //[SerializeField] GameObject combatCam;
     [SerializeField] GameObject dungeonPlayer;
+    GameObject mainPlayer;
     //GameObject preCombatCam;
 
-    public void StartCombat()
+    public void StartCombat(GameObject player)
     {
         transitionScreen.gameObject.SetActive(true);
         transitionScreen.cm = this;
+        mainPlayer = player;
     }
 
     public void SwapPlayer()
@@ -24,10 +26,12 @@ public class CombatManager : MonoBehaviour
         if (dungeonPlayer.activeSelf)
         {
             dungeonPlayer.SetActive(false);
+            mainPlayer.SetActive(true);
         }
         else
         {
             dungeonPlayer.SetActive(true);
+            mainPlayer.SetActive(false);
         }
     }
 

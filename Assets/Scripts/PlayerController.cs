@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.InputSystem;
+using Unity.VisualScripting;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,11 +17,6 @@ public class PlayerController : MonoBehaviour
 
     Transform camTransform;
 
-    float xRotation = 0f;
-    float yRotation = 0f;
-    float verticalMovement;
-    float horizontalMovement;
-
     public bool controlsActive = true;
 
     CinemachineVirtualCamera outerCamera;
@@ -27,6 +24,21 @@ public class PlayerController : MonoBehaviour
 
     //public TextAsset NPCDialogue;
     public NPC activeNPC;
+
+    #region Input
+    
+    PlayerInput playerInput;
+
+    Vector2 movementInput;
+    public void OnMove(InputAction.CallbackContext context) {movementInput = context.ReadValue<Vector2>();}
+
+    Vector2 lookInput;
+    public void OnLook(InputAction.CallbackContext context) {lookInput = context.ReadValue<Vector2>();}
+
+    bool interactPressed;
+    public void OnInteract(InputAction.CallbackContext context) {interactPressed = context.action.triggered;}
+
+    #endregion
 
     private void Awake() 
     {
@@ -43,6 +55,7 @@ public class PlayerController : MonoBehaviour
         playerVCAMPOV.m_VerticalAxis.m_MaxSpeed = mouseSensitivity;
 
         rb = GetComponent<Rigidbody>();
+        playerInput = FindObjectOfType<PlayerInput>();
         //dm = FindObjectOfType<DialogueManager>();
         // xRotation = gameObject.transform.rotation.eulerAngles.x;
         // yRotation = gameObject.transform.rotation.eulerAngles.y; // angles may be off
@@ -53,7 +66,7 @@ public class PlayerController : MonoBehaviour
     {
         if (controlsActive)
         {
-            if (Input.GetKeyDown(KeyCode.E) && canInteract)
+            if (interactPressed && canInteract)
             {
                 DeactivatePlayer();
                 
@@ -68,16 +81,11 @@ public class PlayerController : MonoBehaviour
             }
 
             transform.rotation = Quaternion.Euler(0, camTransform.rotation.eulerAngles.y, 0);
-
-            horizontalMovement = Input.GetAxisRaw("Horizontal");
-            verticalMovement = Input.GetAxisRaw("Vertical");
+            //Debug.Log(lookInput);
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                //outerCamera.gameObject.GetComponentInParent<DialogueManager>().SendInput();
-            }
+            
         }
     }
 
@@ -85,7 +93,7 @@ public class PlayerController : MonoBehaviour
     {
         if (controlsActive)
         {
-            rb.AddForce(((gameObject.transform.forward * verticalMovement) + (gameObject.transform.right * horizontalMovement)).normalized * acceleration, ForceMode.Force);
+            rb.AddForce(((gameObject.transform.forward * movementInput.y) + (gameObject.transform.right * movementInput.x)).normalized * acceleration, ForceMode.Force);
 
             Vector3 flatVelocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
             if (flatVelocity.magnitude > moveSpeed)
@@ -119,6 +127,8 @@ public class PlayerController : MonoBehaviour
         Cursor.visible = true;
         mr.enabled = false;
 
+        //playerInput.SwitchCurrentActionMap("UI");
+
         playerVCAMPOV.m_HorizontalAxis.m_MaxSpeed = 0;
         playerVCAMPOV.m_VerticalAxis.m_MaxSpeed = 0;
     }
@@ -132,6 +142,8 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         mr.enabled = true;
+
+        //playerInput.SwitchCurrentActionMap("Player");
 
         playerVCAMPOV.m_HorizontalAxis.m_MaxSpeed = mouseSensitivity;
         playerVCAMPOV.m_VerticalAxis.m_MaxSpeed = mouseSensitivity;

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class CardDisplay : MonoBehaviour
 {
@@ -10,8 +12,13 @@ public class CardDisplay : MonoBehaviour
     [SerializeField] MeshFilter cardMeshFilter;
     [SerializeField] Animator cardDisplayAnimator;
 
+    [SerializeField] Button button;
+
     public void InitializeCardDisplay(CombatManager sendingCM, Mesh cardMesh, Material cardMat)
     {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(button.gameObject);
+
         cm = sendingCM;
 
         cardMeshRenderer.material = cardMat;
