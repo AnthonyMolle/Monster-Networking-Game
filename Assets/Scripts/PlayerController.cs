@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float moveSpeed = 10;
     [SerializeField] float acceleration = 100;
 
+    [SerializeField] GameObject pauseMenu;
+
     Transform camTransform;
 
     public bool controlsActive = true;
@@ -37,6 +39,9 @@ public class PlayerController : MonoBehaviour
 
     bool interactPressed;
     public void OnInteract(InputAction.CallbackContext context) {interactPressed = context.action.triggered;}
+
+    bool pausePressed;
+    public void OnPause(InputAction.CallbackContext context) {pausePressed = context.action.triggered;}
 
     #endregion
 
@@ -86,6 +91,11 @@ public class PlayerController : MonoBehaviour
         else
         {
             
+        }
+
+        if (pausePressed)
+        {
+            pauseMenu.gameObject.SetActive(true);
         }
     }
 

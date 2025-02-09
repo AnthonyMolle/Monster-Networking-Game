@@ -14,6 +14,7 @@ public class DungeonPlayerController : MonoBehaviour
     CinemachinePOV playerVCAMPOV;
     [SerializeField] Rigidbody rb;
     [SerializeField] MeshRenderer mr;
+    [SerializeField] GameObject pauseMenu;
     [SerializeField] float mouseSensitivity = 300;
 
     [SerializeField] float moveSpeed = 10;
@@ -71,6 +72,9 @@ public class DungeonPlayerController : MonoBehaviour
     bool actionSecondaryPressed;
     public void OnSecondary(InputAction.CallbackContext context) {actionSecondaryPressed = context.action.triggered;}
 
+    bool pausePressed;
+    public void OnPause(InputAction.CallbackContext context) {pausePressed = context.action.triggered;}
+
     #endregion
 
     private void Awake() 
@@ -92,13 +96,13 @@ public class DungeonPlayerController : MonoBehaviour
         playerInput = FindObjectOfType<PlayerInput>();
 
         // reset everything related to the player and the combat
-        currentHealth = 5;
+        currentHealth = maxHealth;
         transform.position = spawnPoint.position;
     }
 
     void OnEnable()
     {
-        currentHealth = 5;
+        currentHealth = maxHealth;
         transform.position = spawnPoint.position;
     }
 
@@ -136,10 +140,16 @@ public class DungeonPlayerController : MonoBehaviour
             }
 
             heldObject.transform.rotation = Quaternion.Lerp(heldObject.transform.rotation, camHoldPoint.transform.rotation, 15f * Time.deltaTime);
+            heldObject.transform.position = Vector3.Lerp(heldObject.transform.position, camHoldPoint.transform.position, 100f * Time.deltaTime);
         }
         else
         {
 
+        }
+
+        if (pausePressed)
+        {
+            pauseMenu.SetActive(true);
         }
     }
 
@@ -212,7 +222,7 @@ public class DungeonPlayerController : MonoBehaviour
                 }
             }
 
-            heldObject.transform.position = Vector3.Lerp(heldObject.transform.position, camHoldPoint.transform.position, 100f);
+            
         }
     }
 
