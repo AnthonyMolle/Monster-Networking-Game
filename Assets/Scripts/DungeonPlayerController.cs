@@ -146,7 +146,7 @@ public class DungeonPlayerController : MonoBehaviour
                 playerVCAM.m_Lens.Dutch = Mathf.Lerp(playerVCAM.m_Lens.Dutch, 0, cameraTiltSpeed * Time.deltaTime);
             }
 
-            Vector3 targetPosition = (-rb.velocity.normalized * rb.velocity.magnitude/moveSpeed)/2 + transform.position;
+            Vector3 targetPosition = (-rb.velocity.normalized * rb.velocity.magnitude/moveSpeed)/2.5f + transform.position;
             objectHolderHolder.transform.position = Vector3.Lerp(objectHolderHolder.transform.position, targetPosition, 10f * Time.deltaTime);
 
             float targetRotationY = -lookInput.x * maxRotation;

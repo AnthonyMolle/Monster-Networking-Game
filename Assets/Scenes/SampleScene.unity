@@ -5556,13 +5556,13 @@ GameObject:
   - component: {fileID: 582235516}
   - component: {fileID: 582235518}
   - component: {fileID: 582235517}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HeldObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &582235516
 Transform:
   m_ObjectHideFlags: 0
@@ -21305,7 +21305,7 @@ PrefabInstance:
     - target: {fileID: 4080750421862839711, guid: 4f00622b94e219440985d37905caf615,
         type: 3}
       propertyPath: maxRotation
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4080750421862839711, guid: 4f00622b94e219440985d37905caf615,
         type: 3}
