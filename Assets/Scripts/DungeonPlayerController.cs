@@ -38,13 +38,15 @@ public class DungeonPlayerController : MonoBehaviour
     [SerializeField] float cameraTilt = 5f;
     [SerializeField] float cameraTiltSpeed = 5f;
 
-    [SerializeField] GameObject heldObject;
+    [SerializeField] GameObject objectHolderHolder;
+    [SerializeField] GameObject objectHolder;
+    [SerializeField] GameObject weapon;
+    [SerializeField] float maxRotation;
 
     [SerializeField] int maxHealth = 5;
     int currentHealth = 5;
 
     Transform camTransform;
-    GameObject camHoldPoint;
 
     public bool controlsActive = true;
 
@@ -86,7 +88,6 @@ public class DungeonPlayerController : MonoBehaviour
     void Start()
     {   
         camTransform = Camera.main.transform;
-        camHoldPoint = camTransform.GetChild(0).gameObject;
 
         playerVCAMPOV = playerVCAM.GetCinemachineComponent<CinemachinePOV>();
         playerVCAMPOV.m_HorizontalAxis.m_MaxSpeed = mouseSensitivity;
@@ -104,6 +105,12 @@ public class DungeonPlayerController : MonoBehaviour
     {
         currentHealth = maxHealth;
         transform.position = spawnPoint.position;
+        weapon.SetActive(true);
+    }
+
+    void OnDisable()
+    {
+        weapon.SetActive(false);
     }
 
     // Update is called once per frame
@@ -139,8 +146,14 @@ public class DungeonPlayerController : MonoBehaviour
                 playerVCAM.m_Lens.Dutch = Mathf.Lerp(playerVCAM.m_Lens.Dutch, 0, cameraTiltSpeed * Time.deltaTime);
             }
 
-            heldObject.transform.rotation = Quaternion.Lerp(heldObject.transform.rotation, camHoldPoint.transform.rotation, 15f * Time.deltaTime);
-            heldObject.transform.position = Vector3.Lerp(heldObject.transform.position, camHoldPoint.transform.position, 100f * Time.deltaTime);
+            Vector3 targetPosition = (-rb.velocity.normalized * rb.velocity.magnitude/moveSpeed)/2 + transform.position;
+            objectHolderHolder.transform.position = Vector3.Lerp(objectHolderHolder.transform.position, targetPosition, 10f * Time.deltaTime);
+
+            float targetRotationY = -lookInput.x * maxRotation;
+            float targetRotationX = lookInput.y * maxRotation;
+
+            Vector3 targetRotationEuler = new Vector3(targetRotationX, targetRotationY, 0);
+            objectHolder.transform.localRotation = Quaternion.Lerp(objectHolder.transform.localRotation, Quaternion.Euler(targetRotationEuler), 10f * Time.deltaTime);
         }
         else
         {
