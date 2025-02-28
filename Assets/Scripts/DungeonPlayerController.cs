@@ -52,6 +52,8 @@ public class DungeonPlayerController : MonoBehaviour
 
     public bool canInteract = false;
 
+    bool isLaunched = false;
+
     #region Input
 
     PlayerInput playerInput;
@@ -220,7 +222,7 @@ public class DungeonPlayerController : MonoBehaviour
             RaycastHit hit; 
             if (Physics.Raycast(transform.position, -transform.up, out hit, groundCheckLength, groundLayers))
             {
-                if (!jumping)
+                if (!jumping && !isLaunched)
                 {
                     isGrounded = true;
                 }
@@ -231,14 +233,33 @@ public class DungeonPlayerController : MonoBehaviour
                 {
                     DoCoyoteTime();
                 }
-                else if (jumping)
+                else if (jumping || isLaunched)
                 {
-                    jumping = false;
+                    if (jumping)
+                    {
+                        jumping = false;
+                    }
+
+                    if (isLaunched)
+                    {
+                        UnsetLaunched();
+                    }
                 }
             }
 
             
         }
+    }
+
+    public virtual void SetLaunched()
+    {
+        isLaunched = true;
+        isGrounded = false;
+    }
+
+    public virtual void UnsetLaunched()
+    {
+        isLaunched = false;
     }
 
     protected virtual void Jump()

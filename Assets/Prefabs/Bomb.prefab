@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8867151470453575627}
   - component: {fileID: 4698057987215718542}
   - component: {fileID: 741822003398451437}
+  - component: {fileID: 6130665809515841776}
   m_Layer: 9
   m_Name: Bomb
   m_TagString: Untagged
@@ -100,7 +101,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -133,3 +134,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &6130665809515841776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5107490557212669661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be87b6f81889fed4f8be7f3717bc9ae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles: {fileID: 0}
+  explosionRadius: 10
+  explosionLayers:
+    serializedVersion: 2
+    m_Bits: 511
+  explosionForce: 15
