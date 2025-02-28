@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class BreakableWall : MonoBehaviour
 {
-    public Rigidbody[] rbs;
+    public Rock[] rocks;
+    [SerializeField] float rockShrinkDelay = 3f;
 
     public void ActivateRocks()
     {
-        foreach (Rigidbody rb in rbs)
+        foreach (Rock rock in rocks)
         {
-            rb.isKinematic = false;
+            rock.ActivateRock(rockShrinkDelay);
         }
 
         gameObject.GetComponent<Collider>().enabled = false;
     }
+
 }

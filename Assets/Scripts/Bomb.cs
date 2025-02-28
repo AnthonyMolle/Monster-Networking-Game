@@ -31,17 +31,21 @@ public class Bomb : MonoBehaviour
                 {
                     Debug.Log("adding force");
                     bp.SetLaunched();
-                    bp.gameObject.GetComponent<Rigidbody>().AddForce((bp.gameObject.transform.position - transform.position).normalized * explosionForce, ForceMode.Impulse);
+
+                    Rigidbody bprb = bp.gameObject.GetComponent<Rigidbody>();
+                    bprb.velocity = Vector3.zero;
+                    bprb.AddForce((bp.gameObject.transform.position - transform.position).normalized * explosionForce, ForceMode.Impulse);
                     continue;
                 }
 
                 BreakableWall bw = collider.GetComponent<BreakableWall>();
                 if (bw != null)
                 {
+                    Debug.Log("attempt rock break");
                     bw.ActivateRocks();
-                    foreach (Rigidbody rb in bw.rbs)
+                    foreach (Rock rock in bw.rocks)
                     {
-                        rb.AddForce((rb.gameObject.transform.position - transform.position).normalized * explosionForce, ForceMode.Impulse);
+                        rock.rb.AddForce((rock.gameObject.transform.position - transform.position).normalized * explosionForce, ForceMode.Impulse);
                     }
                     continue;
                 }

@@ -12,7 +12,7 @@ public class DungeonPlayerController : MonoBehaviour
     [SerializeField] CombatManager combatManager;
     [SerializeField] Transform spawnPoint;
     CinemachinePOV playerVCAMPOV;
-    [SerializeField] Rigidbody rb;
+    [SerializeField] public Rigidbody rb;
     [SerializeField] MeshRenderer mr;
     [SerializeField] GameObject pauseMenu;
     [SerializeField] float mouseSensitivity = 300;
@@ -118,9 +118,6 @@ public class DungeonPlayerController : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        Debug.Log("running");
-        Debug.Log(movementInput);
-
         if (controlsActive)
         {
             if (interactPressed && canInteract)
@@ -171,6 +168,8 @@ public class DungeonPlayerController : MonoBehaviour
 
     protected virtual void FixedUpdate() 
     {
+        Debug.Log(isGrounded);
+
         if (controlsActive)
         {
             Debug.Log("running physics");

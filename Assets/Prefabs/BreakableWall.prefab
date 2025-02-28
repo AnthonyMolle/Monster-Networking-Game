@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3250444048799913738}
   - component: {fileID: 4763146998369079425}
   - component: {fileID: 6622671269337584258}
+  - component: {fileID: 5919050502412290081}
   m_Layer: 10
   m_Name: BreakableWallRock (73)
   m_TagString: Untagged
@@ -134,6 +135,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &5919050502412290081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62067356806754592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!1 &195184032668246609
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,6 +161,7 @@ GameObject:
   - component: {fileID: 4295890279038990098}
   - component: {fileID: 276722095634161581}
   - component: {fileID: 6047907778857963426}
+  - component: {fileID: 4280242979744974923}
   m_Layer: 10
   m_Name: BreakableWallRock (19)
   m_TagString: Untagged
@@ -268,6 +283,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &4280242979744974923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195184032668246609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &319132780297227447
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,6 +309,7 @@ GameObject:
   - component: {fileID: 7782849446831222476}
   - component: {fileID: 7798860169416035279}
   - component: {fileID: 2590654176612019230}
+  - component: {fileID: 5442706373110748692}
   m_Layer: 10
   m_Name: BreakableWallRock (22)
   m_TagString: Untagged
@@ -402,6 +431,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &5442706373110748692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319132780297227447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &322246047602143656
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,6 +457,7 @@ GameObject:
   - component: {fileID: 7544568627137175263}
   - component: {fileID: 877915604724136558}
   - component: {fileID: 1229092748349309128}
+  - component: {fileID: 6048459677719277018}
   m_Layer: 10
   m_Name: BreakableWallRock (14)
   m_TagString: Untagged
@@ -536,6 +579,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &6048459677719277018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322246047602143656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &443318420981432464
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,6 +605,7 @@ GameObject:
   - component: {fileID: 205266010979274511}
   - component: {fileID: 3443393535311409767}
   - component: {fileID: 2023415654374726022}
+  - component: {fileID: 8364442906266330135}
   m_Layer: 10
   m_Name: BreakableWallRock (70)
   m_TagString: Untagged
@@ -670,6 +727,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &8364442906266330135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443318420981432464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!1 &493511688561736046
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,6 +753,7 @@ GameObject:
   - component: {fileID: 7689660610136873053}
   - component: {fileID: 5762990239996980211}
   - component: {fileID: 7509663556572541177}
+  - component: {fileID: 6568981496744875701}
   m_Layer: 10
   m_Name: BreakableWallRock (6)
   m_TagString: Untagged
@@ -804,6 +875,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &6568981496744875701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493511688561736046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &576846322056332893
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,6 +901,7 @@ GameObject:
   - component: {fileID: 722951586965282688}
   - component: {fileID: 85737321100174330}
   - component: {fileID: 6637115500640264561}
+  - component: {fileID: 525692255443136048}
   m_Layer: 10
   m_Name: BreakableWallRock (8)
   m_TagString: Untagged
@@ -938,6 +1023,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &525692255443136048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576846322056332893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &589151923796680999
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,6 +1049,7 @@ GameObject:
   - component: {fileID: 5773952267535528616}
   - component: {fileID: 6253687872357978008}
   - component: {fileID: 8556023521106726024}
+  - component: {fileID: 3873647788202010389}
   m_Layer: 10
   m_Name: BreakableWallRock (76)
   m_TagString: Untagged
@@ -1072,6 +1171,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &3873647788202010389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589151923796680999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &946402101631417243
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,6 +1197,7 @@ GameObject:
   - component: {fileID: 356524291055523024}
   - component: {fileID: 3370188250268476235}
   - component: {fileID: 5452626680392241389}
+  - component: {fileID: 1409093381199946708}
   m_Layer: 10
   m_Name: BreakableWallRock (49)
   m_TagString: Untagged
@@ -1206,6 +1319,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &1409093381199946708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946402101631417243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &1304679885374987175
 GameObject:
   m_ObjectHideFlags: 0
@@ -1219,6 +1345,7 @@ GameObject:
   - component: {fileID: 2820099350649537904}
   - component: {fileID: 2695932790163044721}
   - component: {fileID: 7077029717872735291}
+  - component: {fileID: 3957749919763525897}
   m_Layer: 10
   m_Name: BreakableWallRock (57)
   m_TagString: Untagged
@@ -1340,6 +1467,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &3957749919763525897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304679885374987175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!1 &1404226150277839909
 GameObject:
   m_ObjectHideFlags: 0
@@ -1353,6 +1493,7 @@ GameObject:
   - component: {fileID: 1997365274007868724}
   - component: {fileID: 4025222266959806306}
   - component: {fileID: 7200263016836362315}
+  - component: {fileID: 5714950876768087661}
   m_Layer: 10
   m_Name: BreakableWallRock
   m_TagString: Untagged
@@ -1474,6 +1615,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5714950876768087661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404226150277839909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &1791982772945294523
 GameObject:
   m_ObjectHideFlags: 0
@@ -1487,6 +1641,7 @@ GameObject:
   - component: {fileID: 3466776664575299114}
   - component: {fileID: 3633017093769725035}
   - component: {fileID: 5283717388087934829}
+  - component: {fileID: 1567341088623215630}
   m_Layer: 10
   m_Name: BreakableWallRock (39)
   m_TagString: Untagged
@@ -1608,6 +1763,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &1567341088623215630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791982772945294523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &1827282909516465196
 GameObject:
   m_ObjectHideFlags: 0
@@ -1621,6 +1789,7 @@ GameObject:
   - component: {fileID: 8583322666683744172}
   - component: {fileID: 8407783762081436597}
   - component: {fileID: 4994060634123817580}
+  - component: {fileID: 6031444956658089667}
   m_Layer: 10
   m_Name: BreakableWallRock (30)
   m_TagString: Untagged
@@ -1742,6 +1911,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &6031444956658089667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827282909516465196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &1875149864333520024
 GameObject:
   m_ObjectHideFlags: 0
@@ -1755,6 +1937,7 @@ GameObject:
   - component: {fileID: 8208207495583228811}
   - component: {fileID: 8378565998335572785}
   - component: {fileID: 3624313275980205392}
+  - component: {fileID: 5002597508478904304}
   m_Layer: 10
   m_Name: BreakableWallRock (59)
   m_TagString: Untagged
@@ -1876,6 +2059,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &5002597508478904304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875149864333520024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &1891022458576810675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1889,6 +2085,7 @@ GameObject:
   - component: {fileID: 2893872028448067860}
   - component: {fileID: 644085171557133849}
   - component: {fileID: 3104619782440334104}
+  - component: {fileID: 8286121334865619662}
   m_Layer: 10
   m_Name: BreakableWallRock (24)
   m_TagString: Untagged
@@ -2010,6 +2207,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &8286121334865619662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891022458576810675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &2151285779764344778
 GameObject:
   m_ObjectHideFlags: 0
@@ -2023,6 +2233,7 @@ GameObject:
   - component: {fileID: 7283877479872351576}
   - component: {fileID: 4726650077331646247}
   - component: {fileID: 7258022615085212999}
+  - component: {fileID: 1010833948035781464}
   m_Layer: 10
   m_Name: BreakableWallRock (56)
   m_TagString: Untagged
@@ -2144,6 +2355,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &1010833948035781464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2151285779764344778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!1 &2326694857205271100
 GameObject:
   m_ObjectHideFlags: 0
@@ -2157,6 +2381,7 @@ GameObject:
   - component: {fileID: 1401494256698804551}
   - component: {fileID: 8685725784321484660}
   - component: {fileID: 7854533230908020205}
+  - component: {fileID: 3616612731831828803}
   m_Layer: 10
   m_Name: BreakableWallRock (21)
   m_TagString: Untagged
@@ -2278,6 +2503,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &3616612731831828803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2326694857205271100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &2554963535251013977
 GameObject:
   m_ObjectHideFlags: 0
@@ -2291,6 +2529,7 @@ GameObject:
   - component: {fileID: 8151171521526114998}
   - component: {fileID: 6429705872258582625}
   - component: {fileID: 2576485898861055445}
+  - component: {fileID: 8208343705198776752}
   m_Layer: 10
   m_Name: BreakableWallRock (11)
   m_TagString: Untagged
@@ -2412,6 +2651,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &8208343705198776752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2554963535251013977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &2590399619244915417
 GameObject:
   m_ObjectHideFlags: 0
@@ -2425,6 +2677,7 @@ GameObject:
   - component: {fileID: 2099544841034049583}
   - component: {fileID: 855384051622162466}
   - component: {fileID: 8434813256944794482}
+  - component: {fileID: 7059657201772192469}
   m_Layer: 10
   m_Name: BreakableWallRock (31)
   m_TagString: Untagged
@@ -2546,6 +2799,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &7059657201772192469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2590399619244915417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &2675616344876573650
 GameObject:
   m_ObjectHideFlags: 0
@@ -2559,6 +2825,7 @@ GameObject:
   - component: {fileID: 5223420444455769950}
   - component: {fileID: 3437119443330950191}
   - component: {fileID: 6907044647954636596}
+  - component: {fileID: 8988892636079572318}
   m_Layer: 10
   m_Name: BreakableWallRock (46)
   m_TagString: Untagged
@@ -2680,6 +2947,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &8988892636079572318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2675616344876573650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &2733243098447832131
 GameObject:
   m_ObjectHideFlags: 0
@@ -2693,6 +2973,7 @@ GameObject:
   - component: {fileID: 8142807888272873518}
   - component: {fileID: 6448127847630129111}
   - component: {fileID: 3674047141768651899}
+  - component: {fileID: 3637551474856280523}
   m_Layer: 10
   m_Name: BreakableWallRock (35)
   m_TagString: Untagged
@@ -2814,6 +3095,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &3637551474856280523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2733243098447832131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &2812204852285949651
 GameObject:
   m_ObjectHideFlags: 0
@@ -2827,6 +3121,7 @@ GameObject:
   - component: {fileID: 6846037328638132867}
   - component: {fileID: 1547853733316102685}
   - component: {fileID: 3617689044440263595}
+  - component: {fileID: 4816992374076777924}
   m_Layer: 10
   m_Name: BreakableWallRock (55)
   m_TagString: Untagged
@@ -2948,6 +3243,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &4816992374076777924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2812204852285949651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!1 &3018035277391253347
 GameObject:
   m_ObjectHideFlags: 0
@@ -2961,6 +3269,7 @@ GameObject:
   - component: {fileID: 2552547510239499058}
   - component: {fileID: 1269405461981192584}
   - component: {fileID: 7030535225639354410}
+  - component: {fileID: 8172782286782402734}
   m_Layer: 10
   m_Name: BreakableWallRock (60)
   m_TagString: Untagged
@@ -3082,6 +3391,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &8172782286782402734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3018035277391253347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &3142859782087790893
 GameObject:
   m_ObjectHideFlags: 0
@@ -3095,6 +3417,7 @@ GameObject:
   - component: {fileID: 8184869558279215447}
   - component: {fileID: 1532296974979627514}
   - component: {fileID: 7744922648173863921}
+  - component: {fileID: 255721634660362769}
   m_Layer: 10
   m_Name: BreakableWallRock (43)
   m_TagString: Untagged
@@ -3216,6 +3539,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &255721634660362769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3142859782087790893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &3178443988019244018
 GameObject:
   m_ObjectHideFlags: 0
@@ -3229,6 +3565,7 @@ GameObject:
   - component: {fileID: 2960485695649591431}
   - component: {fileID: 7016971762872696763}
   - component: {fileID: 3461313413125856815}
+  - component: {fileID: 2701796702350609165}
   m_Layer: 10
   m_Name: BreakableWallRock (48)
   m_TagString: Untagged
@@ -3350,6 +3687,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &2701796702350609165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3178443988019244018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &3531243273347900560
 GameObject:
   m_ObjectHideFlags: 0
@@ -3363,6 +3713,7 @@ GameObject:
   - component: {fileID: 9205426953438392821}
   - component: {fileID: 11257088300408206}
   - component: {fileID: 6535691547375970860}
+  - component: {fileID: 7301892079175843669}
   m_Layer: 10
   m_Name: BreakableWallRock (61)
   m_TagString: Untagged
@@ -3484,6 +3835,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &7301892079175843669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3531243273347900560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &3588101618143483524
 GameObject:
   m_ObjectHideFlags: 0
@@ -3497,6 +3861,7 @@ GameObject:
   - component: {fileID: 8957308488725107685}
   - component: {fileID: 4747130342121344630}
   - component: {fileID: 3732077786659856727}
+  - component: {fileID: 6528767911170577610}
   m_Layer: 10
   m_Name: BreakableWallRock (4)
   m_TagString: Untagged
@@ -3618,6 +3983,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &6528767911170577610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3588101618143483524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &3673624600006797798
 GameObject:
   m_ObjectHideFlags: 0
@@ -3631,6 +4009,7 @@ GameObject:
   - component: {fileID: 4108466280616234948}
   - component: {fileID: 4927232422990289610}
   - component: {fileID: 7898100687921121503}
+  - component: {fileID: 2686343714368697738}
   m_Layer: 10
   m_Name: BreakableWallRock (63)
   m_TagString: Untagged
@@ -3752,6 +4131,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &2686343714368697738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3673624600006797798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &3716196057920513712
 GameObject:
   m_ObjectHideFlags: 0
@@ -3765,6 +4157,7 @@ GameObject:
   - component: {fileID: 7068627161440211342}
   - component: {fileID: 1957610840938702551}
   - component: {fileID: 5549637016440184051}
+  - component: {fileID: 6637596362291787121}
   m_Layer: 10
   m_Name: BreakableWallRock (36)
   m_TagString: Untagged
@@ -3886,6 +4279,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &6637596362291787121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3716196057920513712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &3868330433301081625
 GameObject:
   m_ObjectHideFlags: 0
@@ -3899,6 +4305,7 @@ GameObject:
   - component: {fileID: 4761151551549942510}
   - component: {fileID: 4356332120027328679}
   - component: {fileID: 59902076231474477}
+  - component: {fileID: 4869079889466523464}
   m_Layer: 10
   m_Name: BreakableWallRock (71)
   m_TagString: Untagged
@@ -4020,6 +4427,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &4869079889466523464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3868330433301081625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!1 &3950970936714301779
 GameObject:
   m_ObjectHideFlags: 0
@@ -4033,6 +4453,7 @@ GameObject:
   - component: {fileID: 4701451716101196810}
   - component: {fileID: 6972058582951359161}
   - component: {fileID: 4621973778659431924}
+  - component: {fileID: 2159080167853168922}
   m_Layer: 10
   m_Name: BreakableWallRock (47)
   m_TagString: Untagged
@@ -4154,6 +4575,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &2159080167853168922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3950970936714301779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &4033891198902225686
 GameObject:
   m_ObjectHideFlags: 0
@@ -4167,6 +4601,7 @@ GameObject:
   - component: {fileID: 6051866703122667750}
   - component: {fileID: 3755692447581382980}
   - component: {fileID: 6924396915419494180}
+  - component: {fileID: 8446172645806080436}
   m_Layer: 10
   m_Name: BreakableWallRock (53)
   m_TagString: Untagged
@@ -4288,6 +4723,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &8446172645806080436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4033891198902225686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!1 &4059049031821872549
 GameObject:
   m_ObjectHideFlags: 0
@@ -4301,6 +4749,7 @@ GameObject:
   - component: {fileID: 6496651386328846736}
   - component: {fileID: 189663830556768813}
   - component: {fileID: 1252191032085418070}
+  - component: {fileID: 3524930400776219406}
   m_Layer: 10
   m_Name: BreakableWallRock (64)
   m_TagString: Untagged
@@ -4422,6 +4871,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &3524930400776219406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4059049031821872549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &4073719729902302878
 GameObject:
   m_ObjectHideFlags: 0
@@ -4530,7 +4992,7 @@ Transform:
   - {fileID: 4605015293690046843}
   - {fileID: 8262010471034872385}
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8351632657124730874
 BoxCollider:
@@ -4565,84 +5027,85 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03a1bacf70045d04faef2bac974823db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rbs:
-  - {fileID: 7200263016836362315}
-  - {fileID: 4133660437979251138}
-  - {fileID: 949288078930588630}
-  - {fileID: 5111770292153558972}
-  - {fileID: 3732077786659856727}
-  - {fileID: 8206819219062512841}
-  - {fileID: 7509663556572541177}
-  - {fileID: 246435792793123459}
-  - {fileID: 6637115500640264561}
-  - {fileID: 6919693631304236287}
-  - {fileID: 3611830635277235532}
-  - {fileID: 2576485898861055445}
-  - {fileID: 1975618525956225362}
-  - {fileID: 2551511246471965290}
-  - {fileID: 1229092748349309128}
-  - {fileID: 551726882807587917}
-  - {fileID: 3422936652689919360}
-  - {fileID: 6252521365545873599}
-  - {fileID: 8247857158638977013}
-  - {fileID: 6047907778857963426}
-  - {fileID: 2896265195704952351}
-  - {fileID: 7854533230908020205}
-  - {fileID: 2590654176612019230}
-  - {fileID: 1185537990909044228}
-  - {fileID: 3104619782440334104}
-  - {fileID: 1900028646630459703}
-  - {fileID: 4392420043413363525}
-  - {fileID: 1235140420575654279}
-  - {fileID: 4677507263824439143}
-  - {fileID: 5182428691080144915}
-  - {fileID: 4994060634123817580}
-  - {fileID: 8434813256944794482}
-  - {fileID: 8687771799418860166}
-  - {fileID: 572354542330486570}
-  - {fileID: 3071448964455614893}
-  - {fileID: 3674047141768651899}
-  - {fileID: 5549637016440184051}
-  - {fileID: 4224182366363463077}
-  - {fileID: 3359409359153778397}
-  - {fileID: 5283717388087934829}
-  - {fileID: 8644508121685244707}
-  - {fileID: 2818038659582114536}
-  - {fileID: 755361079888473925}
-  - {fileID: 7744922648173863921}
-  - {fileID: 7786282680914851419}
-  - {fileID: 1784453841668454377}
-  - {fileID: 6907044647954636596}
-  - {fileID: 4621973778659431924}
-  - {fileID: 3461313413125856815}
-  - {fileID: 5452626680392241389}
-  - {fileID: 1787769655676764234}
-  - {fileID: 641747217832871341}
-  - {fileID: 2267713529369206212}
-  - {fileID: 6924396915419494180}
-  - {fileID: 3913408435452678671}
-  - {fileID: 3617689044440263595}
-  - {fileID: 7258022615085212999}
-  - {fileID: 7077029717872735291}
-  - {fileID: 797078842216828154}
-  - {fileID: 3624313275980205392}
-  - {fileID: 7030535225639354410}
-  - {fileID: 6535691547375970860}
-  - {fileID: 3669751826712604747}
-  - {fileID: 7898100687921121503}
-  - {fileID: 1252191032085418070}
-  - {fileID: 1820493836215403446}
-  - {fileID: 3041503672311612043}
-  - {fileID: 7754349960247442}
-  - {fileID: 4906981798846612335}
-  - {fileID: 2224334279594527240}
-  - {fileID: 2023415654374726022}
-  - {fileID: 59902076231474477}
-  - {fileID: 4298028396684403149}
-  - {fileID: 6622671269337584258}
-  - {fileID: 3265346114425941525}
-  - {fileID: 1836258315011953224}
-  - {fileID: 8556023521106726024}
+  rocks:
+  - {fileID: 5714950876768087661}
+  - {fileID: 7229040493886285833}
+  - {fileID: 167055875841242254}
+  - {fileID: 7546866541087061980}
+  - {fileID: 6528767911170577610}
+  - {fileID: 3503305638988072114}
+  - {fileID: 6568981496744875701}
+  - {fileID: 5235305926404764402}
+  - {fileID: 525692255443136048}
+  - {fileID: 5068762760332475194}
+  - {fileID: 6835075349460650004}
+  - {fileID: 8208343705198776752}
+  - {fileID: 3527464389216099598}
+  - {fileID: 823912122353548601}
+  - {fileID: 6048459677719277018}
+  - {fileID: 1430478715159990072}
+  - {fileID: 3129572991927736132}
+  - {fileID: 5853911746566387495}
+  - {fileID: 33170279392708364}
+  - {fileID: 4280242979744974923}
+  - {fileID: 6239160225774730002}
+  - {fileID: 3616612731831828803}
+  - {fileID: 5442706373110748692}
+  - {fileID: 2761003924956259360}
+  - {fileID: 8286121334865619662}
+  - {fileID: 7277781256447700197}
+  - {fileID: 5533041338112375173}
+  - {fileID: 514344271146986982}
+  - {fileID: 3695348210056803619}
+  - {fileID: 6411538933251886164}
+  - {fileID: 6031444956658089667}
+  - {fileID: 7059657201772192469}
+  - {fileID: 1093961003390446524}
+  - {fileID: 3165930105320330570}
+  - {fileID: 6106076784324189979}
+  - {fileID: 3637551474856280523}
+  - {fileID: 6637596362291787121}
+  - {fileID: 5010012076265866587}
+  - {fileID: 1591327062576098589}
+  - {fileID: 1567341088623215630}
+  - {fileID: 766357048356076580}
+  - {fileID: 4404245929245902759}
+  - {fileID: 1997871225097163332}
+  - {fileID: 255721634660362769}
+  - {fileID: 2186187238852178441}
+  - {fileID: 2280628153161144959}
+  - {fileID: 8988892636079572318}
+  - {fileID: 2159080167853168922}
+  - {fileID: 2701796702350609165}
+  - {fileID: 1409093381199946708}
+  - {fileID: 4163247832150180238}
+  - {fileID: 1153199362382652706}
+  - {fileID: 4706603736469104892}
+  - {fileID: 8446172645806080436}
+  - {fileID: 4630835106519848066}
+  - {fileID: 4816992374076777924}
+  - {fileID: 1010833948035781464}
+  - {fileID: 3957749919763525897}
+  - {fileID: 776190858081094058}
+  - {fileID: 5002597508478904304}
+  - {fileID: 8172782286782402734}
+  - {fileID: 7301892079175843669}
+  - {fileID: 158961461616057875}
+  - {fileID: 2686343714368697738}
+  - {fileID: 3524930400776219406}
+  - {fileID: 1700699464140377786}
+  - {fileID: 956896881940720537}
+  - {fileID: 3014329054922521296}
+  - {fileID: 4258414692795471040}
+  - {fileID: 6905711745245657134}
+  - {fileID: 8364442906266330135}
+  - {fileID: 4869079889466523464}
+  - {fileID: 9052739847436120978}
+  - {fileID: 5919050502412290081}
+  - {fileID: 4063536668801489199}
+  - {fileID: 7850996161733274134}
+  - {fileID: 3873647788202010389}
+  rockShrinkDelay: 3
 --- !u!1 &4081167613757746079
 GameObject:
   m_ObjectHideFlags: 0
@@ -4656,6 +5119,7 @@ GameObject:
   - component: {fileID: 9017488485898627781}
   - component: {fileID: 2036672096078017217}
   - component: {fileID: 797078842216828154}
+  - component: {fileID: 776190858081094058}
   m_Layer: 10
   m_Name: BreakableWallRock (58)
   m_TagString: Untagged
@@ -4777,6 +5241,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &776190858081094058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4081167613757746079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &4130435729235982452
 GameObject:
   m_ObjectHideFlags: 0
@@ -4790,6 +5267,7 @@ GameObject:
   - component: {fileID: 3398565282877765004}
   - component: {fileID: 6567741734897473736}
   - component: {fileID: 2818038659582114536}
+  - component: {fileID: 4404245929245902759}
   m_Layer: 10
   m_Name: BreakableWallRock (41)
   m_TagString: Untagged
@@ -4911,6 +5389,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &4404245929245902759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4130435729235982452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &4502658367227217813
 GameObject:
   m_ObjectHideFlags: 0
@@ -4924,6 +5415,7 @@ GameObject:
   - component: {fileID: 5838326647948573112}
   - component: {fileID: 8917765940055424653}
   - component: {fileID: 1235140420575654279}
+  - component: {fileID: 514344271146986982}
   m_Layer: 10
   m_Name: BreakableWallRock (27)
   m_TagString: Untagged
@@ -5045,6 +5537,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &514344271146986982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4502658367227217813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &4602781527761022207
 GameObject:
   m_ObjectHideFlags: 0
@@ -5058,6 +5563,7 @@ GameObject:
   - component: {fileID: 4257486232289588110}
   - component: {fileID: 2748298089020160879}
   - component: {fileID: 2896265195704952351}
+  - component: {fileID: 6239160225774730002}
   m_Layer: 10
   m_Name: BreakableWallRock (20)
   m_TagString: Untagged
@@ -5179,6 +5685,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &6239160225774730002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4602781527761022207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &4710278446198012256
 GameObject:
   m_ObjectHideFlags: 0
@@ -5192,6 +5711,7 @@ GameObject:
   - component: {fileID: 3760749863833221009}
   - component: {fileID: 1925796497083875197}
   - component: {fileID: 3669751826712604747}
+  - component: {fileID: 158961461616057875}
   m_Layer: 10
   m_Name: BreakableWallRock (62)
   m_TagString: Untagged
@@ -5313,6 +5833,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &158961461616057875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4710278446198012256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &5417972418916061327
 GameObject:
   m_ObjectHideFlags: 0
@@ -5326,6 +5859,7 @@ GameObject:
   - component: {fileID: 2968769062181940334}
   - component: {fileID: 4268764795131339885}
   - component: {fileID: 4392420043413363525}
+  - component: {fileID: 5533041338112375173}
   m_Layer: 10
   m_Name: BreakableWallRock (26)
   m_TagString: Untagged
@@ -5447,6 +5981,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &5533041338112375173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5417972418916061327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &5589427346615466410
 GameObject:
   m_ObjectHideFlags: 0
@@ -5460,6 +6007,7 @@ GameObject:
   - component: {fileID: 3396604978340496964}
   - component: {fileID: 6305639503965879934}
   - component: {fileID: 3913408435452678671}
+  - component: {fileID: 4630835106519848066}
   m_Layer: 10
   m_Name: BreakableWallRock (54)
   m_TagString: Untagged
@@ -5581,6 +6129,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &4630835106519848066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5589427346615466410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!1 &5748857400373617452
 GameObject:
   m_ObjectHideFlags: 0
@@ -5594,6 +6155,7 @@ GameObject:
   - component: {fileID: 5036762648005324153}
   - component: {fileID: 5313350600297035211}
   - component: {fileID: 641747217832871341}
+  - component: {fileID: 1153199362382652706}
   m_Layer: 10
   m_Name: BreakableWallRock (51)
   m_TagString: Untagged
@@ -5715,6 +6277,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &1153199362382652706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5748857400373617452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!1 &5768975571263051845
 GameObject:
   m_ObjectHideFlags: 0
@@ -5728,6 +6303,7 @@ GameObject:
   - component: {fileID: 436182092749300275}
   - component: {fileID: 2696057151391153446}
   - component: {fileID: 1975618525956225362}
+  - component: {fileID: 3527464389216099598}
   m_Layer: 10
   m_Name: BreakableWallRock (12)
   m_TagString: Untagged
@@ -5849,6 +6425,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &3527464389216099598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5768975571263051845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &5862055783280078985
 GameObject:
   m_ObjectHideFlags: 0
@@ -5862,6 +6451,7 @@ GameObject:
   - component: {fileID: 6435140144537889435}
   - component: {fileID: 2475587396529854840}
   - component: {fileID: 572354542330486570}
+  - component: {fileID: 3165930105320330570}
   m_Layer: 10
   m_Name: BreakableWallRock (33)
   m_TagString: Untagged
@@ -5983,6 +6573,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &3165930105320330570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5862055783280078985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &5949296694329698285
 GameObject:
   m_ObjectHideFlags: 0
@@ -5996,6 +6599,7 @@ GameObject:
   - component: {fileID: 4481766458251207283}
   - component: {fileID: 8255113509834750832}
   - component: {fileID: 755361079888473925}
+  - component: {fileID: 1997871225097163332}
   m_Layer: 10
   m_Name: BreakableWallRock (42)
   m_TagString: Untagged
@@ -6117,6 +6721,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &1997871225097163332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5949296694329698285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &6022675546205716473
 GameObject:
   m_ObjectHideFlags: 0
@@ -6130,6 +6747,7 @@ GameObject:
   - component: {fileID: 617703957984876926}
   - component: {fileID: 5804486631814949649}
   - component: {fileID: 4133660437979251138}
+  - component: {fileID: 7229040493886285833}
   m_Layer: 10
   m_Name: BreakableWallRock (1)
   m_TagString: Untagged
@@ -6251,6 +6869,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &7229040493886285833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6022675546205716473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &6190038504429588938
 GameObject:
   m_ObjectHideFlags: 0
@@ -6264,6 +6895,7 @@ GameObject:
   - component: {fileID: 3212988683849475652}
   - component: {fileID: 1523913148827208690}
   - component: {fileID: 7786282680914851419}
+  - component: {fileID: 2186187238852178441}
   m_Layer: 10
   m_Name: BreakableWallRock (44)
   m_TagString: Untagged
@@ -6385,6 +7017,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &2186187238852178441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6190038504429588938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &6323358103312645074
 GameObject:
   m_ObjectHideFlags: 0
@@ -6398,6 +7043,7 @@ GameObject:
   - component: {fileID: 6898908885149358611}
   - component: {fileID: 996370827318232035}
   - component: {fileID: 3422936652689919360}
+  - component: {fileID: 3129572991927736132}
   m_Layer: 10
   m_Name: BreakableWallRock (16)
   m_TagString: Untagged
@@ -6519,6 +7165,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &3129572991927736132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6323358103312645074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &6330820191379379477
 GameObject:
   m_ObjectHideFlags: 0
@@ -6532,6 +7191,7 @@ GameObject:
   - component: {fileID: 8793006096230166471}
   - component: {fileID: 7243878719122132550}
   - component: {fileID: 1900028646630459703}
+  - component: {fileID: 7277781256447700197}
   m_Layer: 10
   m_Name: BreakableWallRock (25)
   m_TagString: Untagged
@@ -6653,6 +7313,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &7277781256447700197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6330820191379379477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &6377117446383829963
 GameObject:
   m_ObjectHideFlags: 0
@@ -6666,6 +7339,7 @@ GameObject:
   - component: {fileID: 6099934973883521958}
   - component: {fileID: 3081736838547036544}
   - component: {fileID: 1784453841668454377}
+  - component: {fileID: 2280628153161144959}
   m_Layer: 10
   m_Name: BreakableWallRock (45)
   m_TagString: Untagged
@@ -6787,6 +7461,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &2280628153161144959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6377117446383829963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &6398410870172860495
 GameObject:
   m_ObjectHideFlags: 0
@@ -6800,6 +7487,7 @@ GameObject:
   - component: {fileID: 7102959942782279615}
   - component: {fileID: 6329562878576248636}
   - component: {fileID: 8644508121685244707}
+  - component: {fileID: 766357048356076580}
   m_Layer: 10
   m_Name: BreakableWallRock (40)
   m_TagString: Untagged
@@ -6921,6 +7609,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &766357048356076580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6398410870172860495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &6449651309154752848
 GameObject:
   m_ObjectHideFlags: 0
@@ -6934,6 +7635,7 @@ GameObject:
   - component: {fileID: 2373247633005723680}
   - component: {fileID: 941004812138104280}
   - component: {fileID: 8206819219062512841}
+  - component: {fileID: 3503305638988072114}
   m_Layer: 10
   m_Name: BreakableWallRock (5)
   m_TagString: Untagged
@@ -7055,6 +7757,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &3503305638988072114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6449651309154752848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &6671538271569685231
 GameObject:
   m_ObjectHideFlags: 0
@@ -7068,6 +7783,7 @@ GameObject:
   - component: {fileID: 5952614869413539626}
   - component: {fileID: 7914556856920093716}
   - component: {fileID: 6919693631304236287}
+  - component: {fileID: 5068762760332475194}
   m_Layer: 10
   m_Name: BreakableWallRock (9)
   m_TagString: Untagged
@@ -7189,6 +7905,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &5068762760332475194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6671538271569685231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &6775890222803396469
 GameObject:
   m_ObjectHideFlags: 0
@@ -7202,6 +7931,7 @@ GameObject:
   - component: {fileID: 909706289015124407}
   - component: {fileID: 7194971106752069722}
   - component: {fileID: 4224182366363463077}
+  - component: {fileID: 5010012076265866587}
   m_Layer: 10
   m_Name: BreakableWallRock (37)
   m_TagString: Untagged
@@ -7323,6 +8053,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &5010012076265866587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6775890222803396469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &6813433250266225266
 GameObject:
   m_ObjectHideFlags: 0
@@ -7336,6 +8079,7 @@ GameObject:
   - component: {fileID: 617457987284541259}
   - component: {fileID: 4175057986381040714}
   - component: {fileID: 4298028396684403149}
+  - component: {fileID: 9052739847436120978}
   m_Layer: 10
   m_Name: BreakableWallRock (72)
   m_TagString: Untagged
@@ -7457,6 +8201,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &9052739847436120978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6813433250266225266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &6817364802666757748
 GameObject:
   m_ObjectHideFlags: 0
@@ -7470,6 +8227,7 @@ GameObject:
   - component: {fileID: 5383336199947237612}
   - component: {fileID: 625621024963451259}
   - component: {fileID: 2267713529369206212}
+  - component: {fileID: 4706603736469104892}
   m_Layer: 10
   m_Name: BreakableWallRock (52)
   m_TagString: Untagged
@@ -7591,6 +8349,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &4706603736469104892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6817364802666757748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!1 &6818621534440593511
 GameObject:
   m_ObjectHideFlags: 0
@@ -7604,6 +8375,7 @@ GameObject:
   - component: {fileID: 4123578544523354361}
   - component: {fileID: 707211333476700792}
   - component: {fileID: 3359409359153778397}
+  - component: {fileID: 1591327062576098589}
   m_Layer: 10
   m_Name: BreakableWallRock (38)
   m_TagString: Untagged
@@ -7725,6 +8497,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &1591327062576098589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6818621534440593511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &6939829823512886719
 GameObject:
   m_ObjectHideFlags: 0
@@ -7738,6 +8523,7 @@ GameObject:
   - component: {fileID: 2288282228074531943}
   - component: {fileID: 6371705617046077566}
   - component: {fileID: 6252521365545873599}
+  - component: {fileID: 5853911746566387495}
   m_Layer: 10
   m_Name: BreakableWallRock (17)
   m_TagString: Untagged
@@ -7859,6 +8645,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &5853911746566387495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6939829823512886719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &6997653486276090512
 GameObject:
   m_ObjectHideFlags: 0
@@ -7872,6 +8671,7 @@ GameObject:
   - component: {fileID: 7977379896920428585}
   - component: {fileID: 2159299125579381673}
   - component: {fileID: 7754349960247442}
+  - component: {fileID: 3014329054922521296}
   m_Layer: 10
   m_Name: BreakableWallRock (67)
   m_TagString: Untagged
@@ -7993,6 +8793,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &3014329054922521296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6997653486276090512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!1 &7049520675534067716
 GameObject:
   m_ObjectHideFlags: 0
@@ -8006,6 +8819,7 @@ GameObject:
   - component: {fileID: 7202829621411930204}
   - component: {fileID: 1211083667871979919}
   - component: {fileID: 8687771799418860166}
+  - component: {fileID: 1093961003390446524}
   m_Layer: 10
   m_Name: BreakableWallRock (32)
   m_TagString: Untagged
@@ -8127,6 +8941,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &1093961003390446524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7049520675534067716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &7272006140960270279
 GameObject:
   m_ObjectHideFlags: 0
@@ -8140,6 +8967,7 @@ GameObject:
   - component: {fileID: 8388727227976636157}
   - component: {fileID: 3112824285069146833}
   - component: {fileID: 949288078930588630}
+  - component: {fileID: 167055875841242254}
   m_Layer: 10
   m_Name: BreakableWallRock (2)
   m_TagString: Untagged
@@ -8261,6 +9089,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &167055875841242254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7272006140960270279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &7371306753800810607
 GameObject:
   m_ObjectHideFlags: 0
@@ -8274,6 +9115,7 @@ GameObject:
   - component: {fileID: 901600178313294785}
   - component: {fileID: 966705306414308622}
   - component: {fileID: 3071448964455614893}
+  - component: {fileID: 6106076784324189979}
   m_Layer: 10
   m_Name: BreakableWallRock (34)
   m_TagString: Untagged
@@ -8395,6 +9237,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &6106076784324189979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7371306753800810607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &7441451494639845632
 GameObject:
   m_ObjectHideFlags: 0
@@ -8408,6 +9263,7 @@ GameObject:
   - component: {fileID: 8282867841569378033}
   - component: {fileID: 5967659648151981011}
   - component: {fileID: 246435792793123459}
+  - component: {fileID: 5235305926404764402}
   m_Layer: 10
   m_Name: BreakableWallRock (7)
   m_TagString: Untagged
@@ -8529,6 +9385,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &5235305926404764402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7441451494639845632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &7456060733999406718
 GameObject:
   m_ObjectHideFlags: 0
@@ -8542,6 +9411,7 @@ GameObject:
   - component: {fileID: 5620600205127080675}
   - component: {fileID: 3809096966579761245}
   - component: {fileID: 1836258315011953224}
+  - component: {fileID: 7850996161733274134}
   m_Layer: 10
   m_Name: BreakableWallRock (75)
   m_TagString: Untagged
@@ -8663,6 +9533,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &7850996161733274134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7456060733999406718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &7530208537059546253
 GameObject:
   m_ObjectHideFlags: 0
@@ -8676,6 +9559,7 @@ GameObject:
   - component: {fileID: 7938713740702105259}
   - component: {fileID: 2585488133346080405}
   - component: {fileID: 8247857158638977013}
+  - component: {fileID: 33170279392708364}
   m_Layer: 10
   m_Name: BreakableWallRock (18)
   m_TagString: Untagged
@@ -8797,6 +9681,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &33170279392708364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7530208537059546253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &7671467185169420470
 GameObject:
   m_ObjectHideFlags: 0
@@ -8810,6 +9707,7 @@ GameObject:
   - component: {fileID: 8719961167002188915}
   - component: {fileID: 663803689332620146}
   - component: {fileID: 3041503672311612043}
+  - component: {fileID: 956896881940720537}
   m_Layer: 10
   m_Name: BreakableWallRock (66)
   m_TagString: Untagged
@@ -8931,6 +9829,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &956896881940720537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7671467185169420470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &7709393785114524298
 GameObject:
   m_ObjectHideFlags: 0
@@ -8944,6 +9855,7 @@ GameObject:
   - component: {fileID: 3623509861533530459}
   - component: {fileID: 293917062503450005}
   - component: {fileID: 1787769655676764234}
+  - component: {fileID: 4163247832150180238}
   m_Layer: 10
   m_Name: BreakableWallRock (50)
   m_TagString: Untagged
@@ -9065,6 +9977,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &4163247832150180238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7709393785114524298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!1 &7718013436875885989
 GameObject:
   m_ObjectHideFlags: 0
@@ -9078,6 +10003,7 @@ GameObject:
   - component: {fileID: 4892925221020038126}
   - component: {fileID: 6416412794336550484}
   - component: {fileID: 3265346114425941525}
+  - component: {fileID: 4063536668801489199}
   m_Layer: 10
   m_Name: BreakableWallRock (74)
   m_TagString: Untagged
@@ -9199,6 +10125,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &4063536668801489199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7718013436875885989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!1 &7867518541877945935
 GameObject:
   m_ObjectHideFlags: 0
@@ -9212,6 +10151,7 @@ GameObject:
   - component: {fileID: 7848230021520316732}
   - component: {fileID: 6751123355134298656}
   - component: {fileID: 1185537990909044228}
+  - component: {fileID: 2761003924956259360}
   m_Layer: 10
   m_Name: BreakableWallRock (23)
   m_TagString: Untagged
@@ -9333,6 +10273,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &2761003924956259360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7867518541877945935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &8093204631748840949
 GameObject:
   m_ObjectHideFlags: 0
@@ -9346,6 +10299,7 @@ GameObject:
   - component: {fileID: 6696713978315344667}
   - component: {fileID: 3673367265434344688}
   - component: {fileID: 5111770292153558972}
+  - component: {fileID: 7546866541087061980}
   m_Layer: 10
   m_Name: BreakableWallRock (3)
   m_TagString: Untagged
@@ -9467,6 +10421,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &7546866541087061980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8093204631748840949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &8113834534463523462
 GameObject:
   m_ObjectHideFlags: 0
@@ -9480,6 +10447,7 @@ GameObject:
   - component: {fileID: 3926172627371457803}
   - component: {fileID: 4854711358782024928}
   - component: {fileID: 2551511246471965290}
+  - component: {fileID: 823912122353548601}
   m_Layer: 10
   m_Name: BreakableWallRock (13)
   m_TagString: Untagged
@@ -9601,6 +10569,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &823912122353548601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8113834534463523462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &8143242840684938625
 GameObject:
   m_ObjectHideFlags: 0
@@ -9614,6 +10595,7 @@ GameObject:
   - component: {fileID: 5273334139891396763}
   - component: {fileID: 8332950730888652369}
   - component: {fileID: 3611830635277235532}
+  - component: {fileID: 6835075349460650004}
   m_Layer: 10
   m_Name: BreakableWallRock (10)
   m_TagString: Untagged
@@ -9735,6 +10717,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &6835075349460650004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8143242840684938625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &8150292962483649474
 GameObject:
   m_ObjectHideFlags: 0
@@ -9748,6 +10743,7 @@ GameObject:
   - component: {fileID: 8869274624201929434}
   - component: {fileID: 3525600285937236294}
   - component: {fileID: 4677507263824439143}
+  - component: {fileID: 3695348210056803619}
   m_Layer: 10
   m_Name: BreakableWallRock (28)
   m_TagString: Untagged
@@ -9869,6 +10865,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &3695348210056803619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8150292962483649474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &8523091106461240133
 GameObject:
   m_ObjectHideFlags: 0
@@ -9882,6 +10891,7 @@ GameObject:
   - component: {fileID: 6304100507695603515}
   - component: {fileID: 6872777766274726179}
   - component: {fileID: 5182428691080144915}
+  - component: {fileID: 6411538933251886164}
   m_Layer: 10
   m_Name: BreakableWallRock (29)
   m_TagString: Untagged
@@ -10003,6 +11013,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &6411538933251886164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8523091106461240133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &8549679299832323780
 GameObject:
   m_ObjectHideFlags: 0
@@ -10016,6 +11039,7 @@ GameObject:
   - component: {fileID: 756865751022399693}
   - component: {fileID: 4340662813154979852}
   - component: {fileID: 2224334279594527240}
+  - component: {fileID: 6905711745245657134}
   m_Layer: 10
   m_Name: BreakableWallRock (69)
   m_TagString: Untagged
@@ -10137,6 +11161,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &6905711745245657134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8549679299832323780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!1 &8898623990643365137
 GameObject:
   m_ObjectHideFlags: 0
@@ -10150,6 +11187,7 @@ GameObject:
   - component: {fileID: 3605618640074369046}
   - component: {fileID: 1702717220241858986}
   - component: {fileID: 4906981798846612335}
+  - component: {fileID: 4258414692795471040}
   m_Layer: 10
   m_Name: BreakableWallRock (68)
   m_TagString: Untagged
@@ -10271,6 +11309,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &4258414692795471040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8898623990643365137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &9065159423018105746
 GameObject:
   m_ObjectHideFlags: 0
@@ -10284,6 +11335,7 @@ GameObject:
   - component: {fileID: 6605460938077938452}
   - component: {fileID: 1200290108202970866}
   - component: {fileID: 551726882807587917}
+  - component: {fileID: 1430478715159990072}
   m_Layer: 10
   m_Name: BreakableWallRock (15)
   m_TagString: Untagged
@@ -10405,6 +11457,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &1430478715159990072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9065159423018105746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
 --- !u!1 &9092037881672624998
 GameObject:
   m_ObjectHideFlags: 0
@@ -10418,6 +11483,7 @@ GameObject:
   - component: {fileID: 258553485727260153}
   - component: {fileID: 4925699152891837566}
   - component: {fileID: 1820493836215403446}
+  - component: {fileID: 1700699464140377786}
   m_Layer: 10
   m_Name: BreakableWallRock (65)
   m_TagString: Untagged
@@ -10539,3 +11605,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &1700699464140377786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9092037881672624998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb035e16c50d4d6438b4d9ed8649ad03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 8556023521106726024}
