@@ -68,10 +68,10 @@ public class DungeonPlayerController : MonoBehaviour
     bool jumpPressed;
     public void OnJump(InputAction.CallbackContext context) {jumpPressed = context.action.triggered;}
 
-    bool actionPrimaryPressed;
+    public bool actionPrimaryPressed;
     public void OnPrimary(InputAction.CallbackContext context) {actionPrimaryPressed = context.action.triggered;}
 
-    bool actionSecondaryPressed;
+    public bool actionSecondaryPressed;
     public void OnSecondary(InputAction.CallbackContext context) {actionSecondaryPressed = context.action.triggered;}
 
     bool pausePressed;
@@ -79,13 +79,13 @@ public class DungeonPlayerController : MonoBehaviour
 
     #endregion
 
-    private void Awake() 
+    protected virtual void Awake() 
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    void Start()
+    protected virtual void Start()
     {   
         camTransform = Camera.main.transform;
 
@@ -101,22 +101,23 @@ public class DungeonPlayerController : MonoBehaviour
         transform.position = spawnPoint.position;
     }
 
-    void OnEnable()
+    protected virtual void OnEnable()
     {
         currentHealth = maxHealth;
         transform.position = spawnPoint.position;
         weapon.SetActive(true);
     }
 
-    void OnDisable()
+    protected virtual void OnDisable()
     {
         weapon.SetActive(false);
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
-        Debug.Log(isGrounded);
+        Debug.Log("running");
+        Debug.Log(movementInput);
 
         if (controlsActive)
         {
@@ -166,10 +167,11 @@ public class DungeonPlayerController : MonoBehaviour
         }
     }
 
-    private void FixedUpdate() 
+    protected virtual void FixedUpdate() 
     {
         if (controlsActive)
         {
+            Debug.Log("running physics");
             rb.AddForce(((gameObject.transform.forward * movementInput.y) + (gameObject.transform.right * movementInput.x)).normalized * acceleration, ForceMode.Force);
 
             Vector3 flatVelocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
@@ -239,17 +241,17 @@ public class DungeonPlayerController : MonoBehaviour
         }
     }
 
-    private void Jump()
+    protected virtual void Jump()
     {
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
 
-    private void DoCoyoteTime()
+    protected virtual void DoCoyoteTime()
     {
         StartCoroutine(CoyoteTimeCoroutine());
     }
 
-    private IEnumerator CoyoteTimeCoroutine()
+    protected virtual IEnumerator CoyoteTimeCoroutine()
     {
         yield return new WaitForSeconds(coyoteTime);
         isGrounded = false;
@@ -265,26 +267,26 @@ public class DungeonPlayerController : MonoBehaviour
         }
     }
 
-    private void Die()
+    protected virtual void Die()
     {
         combatManager.Lose();
     }
 
     Chest currentChest;
 
-    public void SetInteractable(Chest chest)
+    public virtual void SetInteractable(Chest chest)
     {
         canInteract = true;
         currentChest = chest;
     }
 
-    public void ResetInteractable()
+    public virtual void ResetInteractable()
     {
         canInteract = false;
         currentChest = null;
     }
 
-    public void DeactivatePlayer()
+    public virtual void DeactivatePlayer()
     {
         controlsActive = false;
         Cursor.lockState = CursorLockMode.None;
@@ -294,7 +296,7 @@ public class DungeonPlayerController : MonoBehaviour
         playerVCAMPOV.m_HorizontalAxis.m_MaxSpeed = 0;
         playerVCAMPOV.m_VerticalAxis.m_MaxSpeed = 0;
     }
-    public void ReactivatePlayer()
+    public virtual void ReactivatePlayer()
     {
         controlsActive = true;
         Cursor.lockState = CursorLockMode.Locked;
@@ -307,7 +309,7 @@ public class DungeonPlayerController : MonoBehaviour
 
     [SerializeField] float reactivationDelay;
 
-    public void ReactivatePlayerDelay()
+    public virtual void ReactivatePlayerDelay()
     {
         StartCoroutine(PlayerActivationDelay());
 
@@ -316,12 +318,22 @@ public class DungeonPlayerController : MonoBehaviour
         mr.enabled = true;
     }
 
-    private IEnumerator PlayerActivationDelay()
+    protected virtual IEnumerator PlayerActivationDelay()
     {
         yield return new WaitForSeconds(reactivationDelay);
 
         controlsActive = true;
         playerVCAMPOV.m_HorizontalAxis.m_MaxSpeed = mouseSensitivity;
         playerVCAMPOV.m_VerticalAxis.m_MaxSpeed = mouseSensitivity;
+    }
+
+    public Vector3 GetCameraPosition()
+    {
+        return Camera.main.transform.position;
+    }
+
+    public Vector3 GetCameraForwardVector()
+    {
+        return Camera.main.transform.forward;
     }
 }
