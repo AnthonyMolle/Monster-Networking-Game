@@ -336,6 +336,8 @@ public class DungeonPlayerController : MonoBehaviour
 
         playerVCAMPOV.m_HorizontalAxis.m_MaxSpeed = 0;
         playerVCAMPOV.m_VerticalAxis.m_MaxSpeed = 0;
+
+        rb.velocity = Vector3.zero;
     }
     public virtual void ReactivatePlayer()
     {
