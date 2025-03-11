@@ -20,7 +20,7 @@ public class Bomb : MonoBehaviour
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius, explosionLayers);
 
-        Debug.Log(colliders.Length);
+        //Debug.Log(colliders.Length);
 
         if (colliders.Length > 0)
         {
@@ -29,11 +29,14 @@ public class Bomb : MonoBehaviour
                 DungeonPlayerController bp = collider.GetComponent<DungeonPlayerController>();
                 if (bp != null)
                 {
-                    Debug.Log("adding force");
+                    //Debug.Log("adding force");
                     bp.SetLaunched();
 
                     Rigidbody bprb = bp.gameObject.GetComponent<Rigidbody>();
-                    bprb.velocity = Vector3.zero;
+                    if (bprb.velocity.y < 0)
+                    {
+                        bprb.velocity = new Vector3(bprb.velocity.x, 0, bprb.velocity.z);
+                    }
                     bprb.AddForce((bp.gameObject.transform.position - transform.position).normalized * explosionForce, ForceMode.Impulse);
                     continue;
                 }
@@ -41,7 +44,7 @@ public class Bomb : MonoBehaviour
                 BreakableWall bw = collider.GetComponent<BreakableWall>();
                 if (bw != null)
                 {
-                    Debug.Log("attempt rock break");
+                    //Debug.Log("attempt rock break");
                     bw.ActivateRocks();
                     foreach (Rock rock in bw.rocks)
                     {

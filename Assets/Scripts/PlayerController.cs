@@ -55,15 +55,28 @@ public class PlayerController : MonoBehaviour
     {
         camTransform = Camera.main.transform;
 
-        playerVCAMPOV = playerVCAM.GetCinemachineComponent<CinemachinePOV>();
-        playerVCAMPOV.m_HorizontalAxis.m_MaxSpeed = mouseSensitivity;
-        playerVCAMPOV.m_VerticalAxis.m_MaxSpeed = mouseSensitivity;
+        UpdateSensitivity();
 
         rb = GetComponent<Rigidbody>();
         playerInput = FindObjectOfType<PlayerInput>();
         //dm = FindObjectOfType<DialogueManager>();
         // xRotation = gameObject.transform.rotation.eulerAngles.x;
         // yRotation = gameObject.transform.rotation.eulerAngles.y; // angles may be off
+    }
+
+    public void UpdateSensitivity()
+    {
+        if (playerVCAMPOV == null)
+        {
+            playerVCAMPOV = playerVCAM.GetCinemachineComponent<CinemachinePOV>();
+        }
+        playerVCAMPOV.m_HorizontalAxis.m_MaxSpeed = PlayerPrefs.GetInt("Sensitivity") * 10;
+        playerVCAMPOV.m_VerticalAxis.m_MaxSpeed = PlayerPrefs.GetInt("Sensitivity") * 10;
+    }
+
+    private void OnEnable()
+    {
+        UpdateSensitivity();
     }
 
     // Update is called once per frame
@@ -135,7 +148,7 @@ public class PlayerController : MonoBehaviour
         controlsActive = false;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        mr.enabled = false;
+        //mr.enabled = false;
 
         //playerInput.SwitchCurrentActionMap("UI");
 
@@ -151,12 +164,12 @@ public class PlayerController : MonoBehaviour
         }
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        mr.enabled = true;
+        //mr.enabled = true;
 
         //playerInput.SwitchCurrentActionMap("Player");
 
-        playerVCAMPOV.m_HorizontalAxis.m_MaxSpeed = mouseSensitivity;
-        playerVCAMPOV.m_VerticalAxis.m_MaxSpeed = mouseSensitivity;
+        playerVCAMPOV.m_HorizontalAxis.m_MaxSpeed = PlayerPrefs.GetInt("Sensitivity") * 10;
+        playerVCAMPOV.m_VerticalAxis.m_MaxSpeed = PlayerPrefs.GetInt("Sensitivity") * 10;
     }
 
     [SerializeField] float reactivationDelay;
@@ -172,7 +185,7 @@ public class PlayerController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        mr.enabled = true;
+        //mr.enabled = true;
     }
 
     private IEnumerator PlayerActivationDelay()
@@ -180,7 +193,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(reactivationDelay);
 
         controlsActive = true;
-        playerVCAMPOV.m_HorizontalAxis.m_MaxSpeed = mouseSensitivity;
-        playerVCAMPOV.m_VerticalAxis.m_MaxSpeed = mouseSensitivity;
+        playerVCAMPOV.m_HorizontalAxis.m_MaxSpeed = PlayerPrefs.GetInt("Sensitivity") * 10;
+        playerVCAMPOV.m_VerticalAxis.m_MaxSpeed = PlayerPrefs.GetInt("Sensitivity") * 10;
     }
 }

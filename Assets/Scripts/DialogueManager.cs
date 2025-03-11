@@ -183,7 +183,7 @@ public class DialogueManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         for (int i = 0; i < currentStory.currentChoices.Count; i += 1)
         {
-            Debug.Log("displaying button");
+            //Debug.Log("displaying button");
             choiceButtons[i].gameObject.SetActive(true);
             choiceText[i].text = currentStory.currentChoices[i].text;
 

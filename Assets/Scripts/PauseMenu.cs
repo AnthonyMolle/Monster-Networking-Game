@@ -37,6 +37,10 @@ public class PauseMenu : MonoBehaviour
     void OnDisable()
     {
         Time.timeScale = storedTimeScale;
-        EventSystem.current.SetSelectedGameObject(storedSelectedButton);
+
+        if (storedSelectedButton != null)
+        {
+            EventSystem.current.SetSelectedGameObject(storedSelectedButton);
+        }
     }
 }

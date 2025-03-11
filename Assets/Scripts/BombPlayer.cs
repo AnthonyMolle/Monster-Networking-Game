@@ -36,9 +36,6 @@ public class BombPlayer : DungeonPlayerController
             if (holdingThrow)
             {
                 holdingThrow = false;
-                //temp
-                canThrow = true;
-                //temp
             }
         }
     }
@@ -57,10 +54,17 @@ public class BombPlayer : DungeonPlayerController
 
     private void ThrowBomb()
     {
-        Instantiate(bombPrefab, GetCameraPosition(), bombPrefab.transform.rotation).GetComponent<Rigidbody>().AddForce((GetCameraForwardVector().normalized * throwForce) + rb.velocity, ForceMode.Impulse);
+        if (((GetCameraForwardVector().normalized * throwForce) + rb.velocity).magnitude < (GetCameraForwardVector().normalized * throwForce).magnitude)
+        {
+            Instantiate(bombPrefab, GetCameraPosition(), GetHeldObjectTransform().rotation).GetComponent<Rigidbody>().AddForce(GetCameraForwardVector().normalized * throwForce, ForceMode.Impulse);
+        }
+        else
+        {
+            Instantiate(bombPrefab, GetCameraPosition(), GetHeldObjectTransform().rotation).GetComponent<Rigidbody>().AddForce((GetCameraForwardVector().normalized * throwForce) + rb.velocity, ForceMode.Impulse);
+        }
     }
 
-    public void resetThrow()
+    public void ResetThrow()
     {
         canThrow = true;
     }

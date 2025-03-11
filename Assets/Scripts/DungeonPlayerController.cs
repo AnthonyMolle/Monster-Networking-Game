@@ -91,9 +91,7 @@ public class DungeonPlayerController : MonoBehaviour
     {   
         camTransform = Camera.main.transform;
 
-        playerVCAMPOV = playerVCAM.GetCinemachineComponent<CinemachinePOV>();
-        playerVCAMPOV.m_HorizontalAxis.m_MaxSpeed = mouseSensitivity;
-        playerVCAMPOV.m_VerticalAxis.m_MaxSpeed = mouseSensitivity;
+        UpdateSensitivity();
 
         rb = GetComponent<Rigidbody>();
         playerInput = FindObjectOfType<PlayerInput>();
@@ -108,6 +106,17 @@ public class DungeonPlayerController : MonoBehaviour
         currentHealth = maxHealth;
         transform.position = spawnPoint.position;
         weapon.SetActive(true);
+        UpdateSensitivity();
+    }
+
+    public void UpdateSensitivity()
+    {
+        if (playerVCAMPOV == null)
+        {
+            playerVCAMPOV = playerVCAM.GetCinemachineComponent<CinemachinePOV>();
+        }
+        playerVCAMPOV.m_HorizontalAxis.m_MaxSpeed = PlayerPrefs.GetInt("Sensitivity") * 10;
+        playerVCAMPOV.m_VerticalAxis.m_MaxSpeed = PlayerPrefs.GetInt("Sensitivity") * 10;
     }
 
     protected virtual void OnDisable()
@@ -166,13 +175,14 @@ public class DungeonPlayerController : MonoBehaviour
         }
     }
 
+    float launchUnsetBuffer = 0.5f;
     protected virtual void FixedUpdate() 
     {
         Debug.Log(isGrounded);
 
         if (controlsActive)
         {
-            Debug.Log("running physics");
+            //Debug.Log("running physics");
             rb.AddForce(((gameObject.transform.forward * movementInput.y) + (gameObject.transform.right * movementInput.x)).normalized * acceleration, ForceMode.Force);
 
             Vector3 flatVelocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
@@ -196,10 +206,11 @@ public class DungeonPlayerController : MonoBehaviour
                     }
                 }
             }
-            else
+            else if (!isLaunched)
             {
                 if (movementInput.y < 0.1f && movementInput.x < 0.1f && rb.velocity.magnitude > 0)
                 {
+                    Debug.Log("applying deceleration");
                     Vector3 decelerationDirection = -(new Vector3(rb.velocity.x, 0, rb.velocity.z)).normalized;
                     rb.AddForce(decelerationDirection * decelerationRate, ForceMode.Force);
 
@@ -221,6 +232,16 @@ public class DungeonPlayerController : MonoBehaviour
             RaycastHit hit; 
             if (Physics.Raycast(transform.position, -transform.up, out hit, groundCheckLength, groundLayers))
             {
+                if (isLaunched)
+                {
+                    launchUnsetBuffer -= Time.deltaTime;
+                    if (launchUnsetBuffer <= 0)
+                    {
+                        UnsetLaunched();
+                        launchUnsetBuffer = 0.5f;
+                    }
+                }
+
                 if (!jumping && !isLaunched)
                 {
                     isGrounded = true;
@@ -355,5 +376,10 @@ public class DungeonPlayerController : MonoBehaviour
     public Vector3 GetCameraForwardVector()
     {
         return Camera.main.transform.forward;
+    }
+
+    public Transform GetHeldObjectTransform()
+    {
+        return weapon.transform;
     }
 }
