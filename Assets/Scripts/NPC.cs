@@ -28,6 +28,8 @@ public class NPC : MonoBehaviour
     private PlayerController player;
     private DialogueManager dm;
 
+    [SerializeField] GameObject interactionUI;
+
     private void Start() 
     {
         dm = FindObjectOfType<DialogueManager>();    
@@ -39,6 +41,7 @@ public class NPC : MonoBehaviour
 
         if (player != null)
         {
+            interactionUI.SetActive(true);
             player.SetInteractable(dialogueCam);
             //player.NPCDialogue = dialogue;
             player.activeNPC = this;
@@ -49,6 +52,7 @@ public class NPC : MonoBehaviour
     {
         if (player != null)
         {
+            interactionUI.SetActive(false);
             player.ResetInteractable();
             //player.NPCDialogue = null;
             player.activeNPC = null;

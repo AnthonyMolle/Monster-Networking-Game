@@ -5,6 +5,7 @@ using UnityEngine;
 public class TransitionScreen : MonoBehaviour
 {
     public CombatManager cm;
+    [SerializeField] GameObject interactionUI;
 
     public void SwapCharacters()
     {
@@ -14,5 +15,24 @@ public class TransitionScreen : MonoBehaviour
     public void DeactivateSelf()
     {
         gameObject.SetActive(false);
+    }
+
+    public void DeactivateInteractUI()
+    {
+        if (interactionUI.activeSelf == true)
+        {
+            interactionUI.SetActive(false);
+        }
+    }
+
+    public NPC npc;
+
+    public void FireNPCDialogue()
+    {
+        if (npc != null)
+        {
+            npc.SendDialogue();
+            npc = null;
+        }
     }
 }

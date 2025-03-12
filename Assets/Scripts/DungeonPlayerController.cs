@@ -124,6 +124,14 @@ public class DungeonPlayerController : MonoBehaviour
         weapon.SetActive(false);
     }
 
+    public Chest chest;
+
+    public void Win()
+    {
+        DeactivatePlayer();
+        combatManager.Win();
+    }
+
     // Update is called once per frame
     protected virtual void Update()
     {
@@ -131,8 +139,10 @@ public class DungeonPlayerController : MonoBehaviour
         {
             if (interactPressed && canInteract)
             {
-                DeactivatePlayer();
-                combatManager.Win();
+                if (chest != null)
+                {
+                    chest.WinAnimation();
+                }
             }
 
             if (jumpPressed && isGrounded)

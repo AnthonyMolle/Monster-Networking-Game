@@ -31,6 +31,8 @@ public class DialogueManager : MonoBehaviour
     bool submitHeld;
     public void OnSubmit(InputAction.CallbackContext context) {submitPressed = context.action.triggered;}
 
+    [SerializeField] GameObject interactionUI;
+
     private void Start()
     {
         choiceText = new TextMeshProUGUI[choiceButtons.Length];
@@ -77,6 +79,7 @@ public class DialogueManager : MonoBehaviour
 
     public void InitializeDialogue(TextAsset inkDialogue, string npcName = null, NPC sendingNPC = null)
     {
+        interactionUI.SetActive(false);
         dialogueBox.SetActive(true);
         currentStory = new Story(inkDialogue.text);
         if (npcName != null)
