@@ -3,8 +3,8 @@ EXTERNAL ReactivatePlayer(delay)
 -> main
 
 ===main===
-you've exhausted this dialogue
-you cant talk to me anymore!
-go away!
+i'll connect with you on D-DunjIn!
+t-t-talk to you then!
+(he smiles again and waves)
 ~ ReactivatePlayer(true)
 -> DONE

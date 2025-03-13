@@ -3,9 +3,9 @@ EXTERNAL ReactivatePlayer(delay)
 -> main
 
 ===main===
-you won!
-congrats!
-exhausting dialogue
+it was....um....
+good! g-good meeting y-you!
+(he gives a slight smile)
 ~ ExhaustDialogue()
 ~ ReactivatePlayer(true)
 -> DONE

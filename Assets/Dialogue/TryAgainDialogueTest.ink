@@ -3,13 +3,12 @@ EXTERNAL ReactivatePlayer(delay)
 -> main
 
 ===main===
-you can try again!
-do you want to start combat?
-    + [yes]
-        bet!
-        ~ StartCombat()
-        -> DONE
-    + [no]
-        another time....
+oh whoops! dropped it, haha, that's ok
+could i get another card?
+    + [(run)]
         ~ ReactivatePlayer(true)
         -> DONE
+    + [(try again)]
+        ~ StartCombat()
+        -> DONE
+    

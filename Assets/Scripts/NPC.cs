@@ -12,7 +12,7 @@ public class NPC : MonoBehaviour
     [SerializeField] public TextAsset winDialogue;
     [SerializeField] public TextAsset exhaustedDialogue;
 
-    [SerializeField] string name;
+    [SerializeField] public string npcName;
     [SerializeField] string mysteryName = "???";
 
     [SerializeField] CombatManager personalCM;
@@ -66,19 +66,19 @@ public class NPC : MonoBehaviour
         {
             if (exhausted)
             {
-                dm.InitializeDialogue(exhaustedDialogue, name, this);
+                dm.InitializeDialogue(exhaustedDialogue, npcName, this);
             }
             else if (won)
             {
-                dm.InitializeDialogue(winDialogue, name, this);
+                dm.InitializeDialogue(winDialogue, npcName, this);
             }
             else if (tryAgain)
             {
-                dm.InitializeDialogue(tryAgainDialogue, name, this);
+                dm.InitializeDialogue(tryAgainDialogue, npcName, this);
             }
             else
             {
-                dm.InitializeDialogue(mainDialogue, name, this);
+                dm.InitializeDialogue(mainDialogue, npcName, this);
             }
         }
         else

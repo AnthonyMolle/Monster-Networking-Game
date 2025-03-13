@@ -1,0 +1,1 @@
+﻿{"inkVersion":21,"root":[[{"->":"main"},["done",{"#f":5,"#n":"g-0"}],null],"done",{"main":["^hey hi hello!","\n","^my name's ben, nice to meet ya!","\n","ev",{"x()":"ShowName"},"pop","/ev","\n","^could i get your card??","\n","ev",{"x()":"StartCombat"},"pop","/ev","\n","done",{"#f":1}],"#f":1}],"listDefs":{}}

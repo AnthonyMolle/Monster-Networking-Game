@@ -30,7 +30,7 @@ public class Rock : MonoBehaviour
     {
         if (shrink)
         {
-            transform.localScale = Vector3.Lerp(transform.localScale, Vector3.zero, 0.5f * Time.deltaTime);
+            transform.localScale = Vector3.Lerp(transform.localScale, Vector3.zero, 0.75f * Time.deltaTime);
             if (transform.localScale.magnitude < 0.1f)
             {
                 Destroy(gameObject);

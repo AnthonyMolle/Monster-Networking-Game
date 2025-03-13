@@ -105,9 +105,9 @@ public class DialogueManager : MonoBehaviour
                 currentNPC.exhausted = true;
             });
 
-            currentStory.BindExternalFunction("ShowName", (string name) => 
+            currentStory.BindExternalFunction("ShowName", () => 
             {
-                nameText.text = name;
+                nameText.text = currentNPC.npcName;
                 currentNPC.showName = true;
             });
         }
