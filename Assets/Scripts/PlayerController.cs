@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
     CinemachinePOV playerVCAMPOV;
     [SerializeField] Rigidbody rb;
     [SerializeField] MeshRenderer mr;
-    [SerializeField] float mouseSensitivity = 300;
     [SerializeField] float moveSpeed = 10;
     [SerializeField] float acceleration = 100;
 
@@ -116,19 +115,23 @@ public class PlayerController : MonoBehaviour
     {
         if (controlsActive)
         {
-            rb.AddForce(((gameObject.transform.forward * movementInput.y) + (gameObject.transform.right * movementInput.x)).normalized * acceleration, ForceMode.Force);
-
-            Vector3 flatVelocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-            if (flatVelocity.magnitude > moveSpeed)
+            if (movementInput.magnitude > 0.25f)
             {
-                Vector3 cappedVelocity = flatVelocity.normalized * moveSpeed;
-                rb.velocity = new Vector3(cappedVelocity.x, 0f, cappedVelocity.z);
+                rb.AddForce(((gameObject.transform.forward * movementInput.y) + (gameObject.transform.right * movementInput.x)).normalized * acceleration, ForceMode.Force);
+
+                Vector3 flatVelocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+                if (flatVelocity.magnitude > moveSpeed)
+                {
+                    Vector3 cappedVelocity = flatVelocity.normalized * moveSpeed;
+                    rb.velocity = new Vector3(cappedVelocity.x, 0f, cappedVelocity.z);
+                }
             }
         }
     }
 
     public void SetInteractable(CinemachineVirtualCamera cam)
     {
+        Debug.Log("setting interactable");
         outerCamera = cam;
         canInteract = true;
     }
@@ -146,8 +149,8 @@ public class PlayerController : MonoBehaviour
             outerCamera.gameObject.SetActive(true);
         }
         controlsActive = false;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        // Cursor.lockState = CursorLockMode.None;
+        // Cursor.visible = true;
         //mr.enabled = false;
 
         //playerInput.SwitchCurrentActionMap("UI");

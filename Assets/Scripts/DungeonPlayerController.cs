@@ -64,7 +64,7 @@ public class DungeonPlayerController : MonoBehaviour
     Vector2 lookInput;
     public void OnLook(InputAction.CallbackContext context) {lookInput = context.ReadValue<Vector2>();}
 
-    bool interactPressed;
+    public bool interactPressed;
     public void OnInteract(InputAction.CallbackContext context) {interactPressed = context.action.triggered;}
 
     bool jumpPressed;
@@ -192,14 +192,16 @@ public class DungeonPlayerController : MonoBehaviour
 
         if (controlsActive)
         {
-            //Debug.Log("running physics");
-            rb.AddForce(((gameObject.transform.forward * movementInput.y) + (gameObject.transform.right * movementInput.x)).normalized * acceleration, ForceMode.Force);
-
-            Vector3 flatVelocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-            if (flatVelocity.magnitude > moveSpeed)
+            if (movementInput.magnitude > 0.25f)
             {
-                Vector3 cappedVelocity = flatVelocity.normalized * moveSpeed;
-                rb.velocity = new Vector3(cappedVelocity.x, rb.velocity.y, cappedVelocity.z);
+                rb.AddForce(((gameObject.transform.forward * movementInput.y) + (gameObject.transform.right * movementInput.x)).normalized * acceleration, ForceMode.Force);
+
+                Vector3 flatVelocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+                if (flatVelocity.magnitude > moveSpeed)
+                {
+                    Vector3 cappedVelocity = flatVelocity.normalized * moveSpeed;
+                    rb.velocity = new Vector3(cappedVelocity.x, rb.velocity.y, cappedVelocity.z);
+                }
             }
 
             if (!isGrounded)
@@ -325,7 +327,7 @@ public class DungeonPlayerController : MonoBehaviour
 
     Chest currentChest;
 
-    public virtual void SetInteractable(Chest chest)
+    public virtual void SetInteractable(Chest chest = null)
     {
         canInteract = true;
         currentChest = chest;
@@ -340,8 +342,8 @@ public class DungeonPlayerController : MonoBehaviour
     public virtual void DeactivatePlayer()
     {
         controlsActive = false;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        // Cursor.lockState = CursorLockMode.None;
+        // Cursor.visible = true;
         mr.enabled = false;
 
         playerVCAMPOV.m_HorizontalAxis.m_MaxSpeed = 0;
