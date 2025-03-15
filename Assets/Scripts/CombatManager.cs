@@ -8,6 +8,7 @@ public class CombatManager : MonoBehaviour
 {
     [SerializeField] NPC attachedNPC;
     [SerializeField] GameObject cardDisplayObject;
+    [SerializeField] GameObject dungeonUI;
     [SerializeField] TransitionScreen transitionScreen;
     //[SerializeField] GameObject combatCam;
     [SerializeField] GameObject dungeonPlayer;
@@ -27,11 +28,13 @@ public class CombatManager : MonoBehaviour
         {
             dungeonPlayer.SetActive(false);
             mainPlayer.SetActive(true);
+            dungeonUI.SetActive(false);
         }
         else
         {
             dungeonPlayer.SetActive(true);
             mainPlayer.SetActive(false);
+            dungeonUI.SetActive(true);
         }
     }
 
