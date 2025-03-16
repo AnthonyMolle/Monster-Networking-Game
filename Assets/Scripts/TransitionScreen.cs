@@ -17,6 +17,11 @@ public class TransitionScreen : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    public void StartSendingDialogue()
+    {
+        cm.SendPostCombatDialogue();
+    }
+
     public void DeactivateInteractUI()
     {
         if (interactionUI.activeSelf == true)

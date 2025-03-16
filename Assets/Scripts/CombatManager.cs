@@ -56,18 +56,26 @@ public class CombatManager : MonoBehaviour
     {
         EndCombat();
         attachedNPC.tryAgain = true;
-        attachedNPC.SendDialogue();
+        //attachedNPC.SendDialogue();
     }
 
     public void EndCombat()
     {
         // exit combat somehow
-        if (attachedNPC.won == true)
-        {
-            attachedNPC.SendDialogue();
-        }
+        // if (attachedNPC.won == true)
+        // {
+        //     attachedNPC.SendDialogue();
+        // }
 
         transitionScreen.gameObject.SetActive(true);
         //FindObjectOfType<PlayerController>().ReactivatePlayer();
+    }
+
+    public void SendPostCombatDialogue()
+    {
+        if (mainPlayer.activeSelf)
+        {
+            attachedNPC.SendDialogue();
+        }
     }
 }
