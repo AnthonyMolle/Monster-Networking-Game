@@ -364,8 +364,8 @@ public class DungeonPlayerController : MonoBehaviour
         Cursor.visible = false;
         mr.enabled = true;
 
-        playerVCAMPOV.m_HorizontalAxis.m_MaxSpeed = mouseSensitivity;
-        playerVCAMPOV.m_VerticalAxis.m_MaxSpeed = mouseSensitivity;
+        playerVCAMPOV.m_HorizontalAxis.m_MaxSpeed = PlayerPrefs.GetInt("Sensitivity") * 10;
+        playerVCAMPOV.m_VerticalAxis.m_MaxSpeed = PlayerPrefs.GetInt("Sensitivity") * 10;
     }
 
     [SerializeField] float reactivationDelay;

@@ -1,4 +1,5 @@
 EXTERNAL ReactivatePlayer(delay)
+EXTERNAL ActivateInternalDialogue(index)
 
 -> main
 

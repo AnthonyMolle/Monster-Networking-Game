@@ -13,7 +13,8 @@ public class NPC : MonoBehaviour
     [SerializeField] public TextAsset exhaustedDialogue;
 
     [SerializeField] public string npcName;
-    [SerializeField] string mysteryName = "???";
+    [SerializeField] public string mysteryName = "???";
+    [SerializeField] public string playerName = "You";
 
     [SerializeField] CombatManager personalCM;
 
@@ -24,6 +25,7 @@ public class NPC : MonoBehaviour
     public bool tryAgain = false;
     public bool won = false;
     public bool showName = false;
+    public bool showPlayerName = false;
 
     private PlayerController player;
     private DialogueManager dm;
@@ -79,6 +81,25 @@ public class NPC : MonoBehaviour
             else
             {
                 dm.InitializeDialogue(mainDialogue, npcName, this);
+            }
+        }
+        else if (showPlayerName)
+        {
+            if (exhausted)
+            {
+                dm.InitializeDialogue(exhaustedDialogue, playerName, this);
+            }
+            else if (won)
+            {
+                dm.InitializeDialogue(winDialogue, playerName, this);
+            }
+            else if (tryAgain)
+            {
+                dm.InitializeDialogue(tryAgainDialogue, playerName, this);
+            }
+            else
+            {
+                dm.InitializeDialogue(mainDialogue, playerName, this);
             }
         }
         else

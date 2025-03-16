@@ -43,10 +43,10 @@ public class Bomb : MonoBehaviour
                     bp.SetLaunched();
 
                     Rigidbody bprb = bp.gameObject.GetComponent<Rigidbody>();
-                    if (bprb.velocity.y < 0)
-                    {
-                        bprb.velocity = new Vector3(bprb.velocity.x, 0, bprb.velocity.z);
-                    }
+                    // if (bprb.velocity.y < 0)
+                    // {
+                    bprb.velocity = new Vector3(bprb.velocity.x, 0, bprb.velocity.z);
+                    // }
                     bprb.AddForce((bp.gameObject.transform.position - transform.position).normalized * explosionForce, ForceMode.Impulse);
                     continue;
                 }

@@ -1,5 +1,9 @@
 EXTERNAL StartCombat()
 EXTERNAL ShowName()
+EXTERNAL ShowPlayerName()
+EXTERNAL ShowMysteryName()
+EXTERNAL ActivateInternalDialogue(index)
+
 -> main
 
 ===main===

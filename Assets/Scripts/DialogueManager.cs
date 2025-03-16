@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.InputSystem.Controls;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -20,7 +21,11 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] Button[] choiceButtons;
     TextMeshProUGUI[] choiceText;
 
+    [SerializeField] InternalDialogue[] internalDialogues;
+
     [SerializeField] PlayerController pc;
+    [SerializeField] StealthPlayerController spc;
+    [SerializeField] BombPlayer bpc;
 
     [SerializeField] float timeBetweenCharacters = 0.1f;
 
@@ -110,6 +115,16 @@ public class DialogueManager : MonoBehaviour
                 nameText.text = currentNPC.npcName;
                 currentNPC.showName = true;
             });
+
+            currentStory.BindExternalFunction("ShowPlayerName", () => 
+            {
+                nameText.text = currentNPC.playerName;
+            });
+
+            currentStory.BindExternalFunction("ShowMysteryName", () => 
+            {
+                nameText.text = currentNPC.mysteryName;
+            });
         }
         else
         {
@@ -118,14 +133,42 @@ public class DialogueManager : MonoBehaviour
 
         currentStory.BindExternalFunction("ReactivatePlayer", (bool delay) => 
         {
+            
             if (delay)
             {
-                pc.ReactivatePlayerDelay();
+                if (pc.gameObject.transform.parent.gameObject.activeSelf)
+                {
+                    pc.ReactivatePlayerDelay();
+                }
+                else if (spc.gameObject.transform.parent.gameObject.activeSelf)
+                {
+                    spc.ReactivatePlayerDelay();
+                }
+                else if (bpc.gameObject.transform.parent.gameObject.activeSelf)
+                {
+                    bpc.ReactivatePlayerDelay();
+                }
             }
             else
             {
-                pc.ReactivatePlayer();
+                if (pc.gameObject.transform.parent.gameObject.activeSelf)
+                {
+                    pc.ReactivatePlayer();
+                }
+                else if (spc.gameObject.transform.parent.gameObject.activeSelf)
+                {
+                    spc.ReactivatePlayer();
+                }
+                else if (bpc.gameObject.transform.parent.gameObject.activeSelf)
+                {
+                    bpc.ReactivatePlayer();
+                }
             }
+        });
+
+        currentStory.BindExternalFunction("ActivateInternalDialogue", (int index) => 
+        {
+            internalDialogues[index].Activate();
         });
     }
 

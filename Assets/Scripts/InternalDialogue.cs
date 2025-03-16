@@ -7,17 +7,14 @@ public class InternalDialogue : MonoBehaviour
 {
     [SerializeField] TextAsset dialogue;
     BoxCollider boxCollider;
-    MeshRenderer mr;
     DialogueManager dm;
     PlayerController player;
+    DungeonPlayerController dpc;
 
     private void Start()
     {
         dm = FindObjectOfType<DialogueManager>();
         boxCollider = GetComponent<BoxCollider>();
-
-        // test
-        mr = GetComponent<MeshRenderer>();
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -28,12 +25,23 @@ public class InternalDialogue : MonoBehaviour
             StartInternalDialogue();
             player.DeactivatePlayer();
         }
+
+        dpc = collider.GetComponent<DungeonPlayerController>();
+        if (dpc != null)
+        {
+            StartInternalDialogue();
+            dpc.DeactivatePlayer();
+        }
     }
 
     private void StartInternalDialogue()
     {
         dm.InitializeDialogue(dialogue);
         boxCollider.enabled = false;
-        mr.enabled = false;
+    }
+
+    public void Activate()
+    {
+        boxCollider.enabled = true;
     }
 }
