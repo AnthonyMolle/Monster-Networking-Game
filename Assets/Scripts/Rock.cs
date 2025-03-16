@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -8,9 +9,16 @@ public class Rock : MonoBehaviour
     public Rigidbody rb;
     bool shrink = false;
 
-    private void Start()
+    Vector3 initialPosition;
+    Vector3 initialRotation;
+    Vector3 initialScale;
+
+    private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        initialPosition = transform.position;
+        initialRotation = transform.rotation.eulerAngles;
+        initialScale = transform.localScale;
     }    
 
     public void ActivateRock(float rockShrinkDelay)
@@ -33,8 +41,19 @@ public class Rock : MonoBehaviour
             transform.localScale = Vector3.Lerp(transform.localScale, Vector3.zero, 0.75f * Time.deltaTime);
             if (transform.localScale.magnitude < 0.1f)
             {
-                Destroy(gameObject);
+                Reset();
             }
         }
+    }
+
+    public void Reset()
+    {
+        shrink = false;
+        rb.isKinematic = true;
+        transform.position = initialPosition;
+        transform.rotation = Quaternion.Euler(initialRotation);
+        transform.localScale = initialScale;
+
+        gameObject.SetActive(false);
     }
 }

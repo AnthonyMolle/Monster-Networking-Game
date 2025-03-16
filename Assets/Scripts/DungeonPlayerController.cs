@@ -101,14 +101,6 @@ public class DungeonPlayerController : MonoBehaviour
         transform.position = spawnPoint.position;
     }
 
-    protected virtual void OnEnable()
-    {
-        currentHealth = maxHealth;
-        transform.position = spawnPoint.position;
-        weapon.SetActive(true);
-        UpdateSensitivity();
-    }
-
     public void UpdateSensitivity()
     {
         if (playerVCAMPOV == null)
@@ -117,11 +109,6 @@ public class DungeonPlayerController : MonoBehaviour
         }
         playerVCAMPOV.m_HorizontalAxis.m_MaxSpeed = PlayerPrefs.GetInt("Sensitivity") * 10;
         playerVCAMPOV.m_VerticalAxis.m_MaxSpeed = PlayerPrefs.GetInt("Sensitivity") * 10;
-    }
-
-    protected virtual void OnDisable()
-    {
-        weapon.SetActive(false);
     }
 
     public Chest chest;
@@ -188,7 +175,6 @@ public class DungeonPlayerController : MonoBehaviour
     float launchUnsetBuffer = 0.5f;
     protected virtual void FixedUpdate() 
     {
-        Debug.Log(isGrounded);
 
         if (controlsActive)
         {
@@ -222,7 +208,7 @@ public class DungeonPlayerController : MonoBehaviour
             {
                 if (movementInput.y < 0.1f && movementInput.x < 0.1f && rb.velocity.magnitude > 0)
                 {
-                    Debug.Log("applying deceleration");
+                    //Debug.Log("applying deceleration");
                     Vector3 decelerationDirection = -(new Vector3(rb.velocity.x, 0, rb.velocity.z)).normalized;
                     rb.AddForce(decelerationDirection * decelerationRate, ForceMode.Force);
 
@@ -322,7 +308,27 @@ public class DungeonPlayerController : MonoBehaviour
 
     protected virtual void Die()
     {
+        // stop movement
         combatManager.Lose();
+    }
+
+    public virtual void Reset()
+    {
+        // this function will be called during the player swap function of the combat manager
+        transform.position = spawnPoint.position;
+        transform.rotation = spawnPoint.rotation;
+        currentHealth = maxHealth;
+    }
+
+    protected virtual void OnEnable()
+    {
+        weapon.SetActive(true);
+        UpdateSensitivity();
+    }
+
+    protected virtual void OnDisable()
+    {
+        weapon.SetActive(false);
     }
 
     Chest currentChest;

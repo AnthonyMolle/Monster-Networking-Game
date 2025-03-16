@@ -120,4 +120,10 @@ public class StealthPlayerController : DungeonPlayerController
     {
         base.FixedUpdate();
     }
+
+    public override void Reset()
+    {
+        base.Reset();
+        hasKey = false;
+    }
 }

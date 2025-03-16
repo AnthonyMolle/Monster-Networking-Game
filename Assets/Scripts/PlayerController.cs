@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
 
     public void SetInteractable(CinemachineVirtualCamera cam)
     {
-        Debug.Log("setting interactable");
+        //Debug.Log("setting interactable");
         outerCamera = cam;
         canInteract = true;
     }

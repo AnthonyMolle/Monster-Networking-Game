@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particles: {fileID: 0}
-  explosionRadius: 10
+  explosionRadius: 5
   explosionLayers:
     serializedVersion: 2
     m_Bits: 511

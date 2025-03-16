@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GhostEnemy : MonoBehaviour
 {
@@ -29,7 +30,11 @@ public class GhostEnemy : MonoBehaviour
     float currentRotation;
     Transform currentWaypoint;
 
-    private void Start()
+    Vector3 initialPosition;
+    Vector3 initialRotation;
+    [SerializeField] List<GameObject> children = new List<GameObject>();
+
+    private void Awake()
     {
         if (hasKey)
         {
@@ -42,6 +47,9 @@ public class GhostEnemy : MonoBehaviour
 
         currentWaypoint = waypointA;
         currentRotation = rotationA;
+
+        initialPosition = new Vector3(waypointA.position.x, transform.position.y, waypointA.position.z);
+        initialRotation = transform.rotation.eulerAngles;
     }
 
     bool stopping = false;
@@ -105,11 +113,33 @@ public class GhostEnemy : MonoBehaviour
             Instantiate(keyPickupPrefab, keyPoint.position, keyPoint.rotation);
         }
         Instantiate(deathParticlesPrefab, particlePoint.position, particlePoint.rotation);
-        gameObject.SetActive(false);
+        
+        foreach (GameObject child in children)
+        {
+            child.SetActive(false);
+        }
     }
 
     public void Reset()
     {
-        //transform.localPosition = Vector3.zero;
+        foreach (GameObject child in children)
+        {
+            child.SetActive(true);
+        }
+
+        if (hasKey)
+        {
+            keyModel.SetActive(true);
+        }
+        else
+        {
+            keyModel.SetActive(false);
+        }
+
+        currentWaypoint = waypointA;
+        currentRotation = rotationA;
+
+        transform.position = initialPosition;
+        transform.rotation = Quaternion.Euler(initialRotation);
     }
 }

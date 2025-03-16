@@ -11,8 +11,18 @@ public class Bomb : MonoBehaviour
     [SerializeField] LayerMask explosionLayers;
     [SerializeField] float explosionForce = 5f;
 
+    
+
     private void OnTriggerEnter(Collider collider)
     {
+        if (collider.gameObject.GetComponent<BreakablePlatform>() != null)
+        {
+            collider.gameObject.GetComponent<BreakablePlatform>().ActivateRocks();
+            foreach (Rock rock in collider.gameObject.GetComponent<BreakablePlatform>().rocks)
+            {
+                rock.rb.AddForce((rock.gameObject.transform.position - transform.position).normalized * explosionForce, ForceMode.Impulse);
+            }
+        }
         Explode();
     }
 

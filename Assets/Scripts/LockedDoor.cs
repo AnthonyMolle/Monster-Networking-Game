@@ -50,4 +50,11 @@ public class LockedDoor : MonoBehaviour
             dpc.activeDoor = null;
         }
     }
+
+    public void Reset()
+    {
+        doorAnimator.Play("DoorClosed");
+        storedPlayer = null;
+        boundsChecker.enabled = true;
+    }
 }

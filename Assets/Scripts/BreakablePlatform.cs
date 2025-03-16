@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BreakableWall : MonoBehaviour
+public class BreakablePlatform : MonoBehaviour
 {
     public Rock[] rocks;
     [SerializeField] float rockShrinkDelay = 3f;

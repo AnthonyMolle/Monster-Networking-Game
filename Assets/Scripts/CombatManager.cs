@@ -12,6 +12,7 @@ public class CombatManager : MonoBehaviour
     [SerializeField] TransitionScreen transitionScreen;
     //[SerializeField] GameObject combatCam;
     [SerializeField] GameObject dungeonPlayer;
+    [SerializeField] TheResetter resetter;
     GameObject mainPlayer;
     //GameObject preCombatCam;
 
@@ -26,6 +27,7 @@ public class CombatManager : MonoBehaviour
     {
         if (dungeonPlayer.activeSelf)
         {
+            resetter.Reset();
             dungeonPlayer.SetActive(false);
             mainPlayer.SetActive(true);
             dungeonUI.SetActive(false);
