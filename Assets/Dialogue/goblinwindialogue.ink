@@ -9,7 +9,6 @@ EXTERNAL ActivateInternalDialogue(index)
 
 ===main===
 it was....um....
-~ ActivateInternalDialogue(0)
 good! g-good meeting y-you!
 (he gives a slight smile)
 ~ ExhaustDialogue()

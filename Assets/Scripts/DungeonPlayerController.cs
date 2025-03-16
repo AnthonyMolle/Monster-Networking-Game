@@ -173,6 +173,7 @@ public class DungeonPlayerController : MonoBehaviour
     }
 
     float launchUnsetBuffer = 0.5f;
+    float regroundTimer = 1f;
     protected virtual void FixedUpdate() 
     {
 
@@ -244,9 +245,25 @@ public class DungeonPlayerController : MonoBehaviour
                 {
                     isGrounded = true;
                 }
+
+                if (!isGrounded)
+                {
+                    regroundTimer -= Time.fixedDeltaTime;
+                    if (regroundTimer <= 0)
+                    {
+                        Debug.Log("regrounding");
+                        isGrounded = true;
+                    }
+                }
+                else
+                {
+                    regroundTimer = 1f;
+                }
             }
             else
             {
+                regroundTimer = 1f;
+
                 if (isGrounded)
                 {
                     DoCoyoteTime();

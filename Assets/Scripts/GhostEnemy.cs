@@ -47,7 +47,15 @@ public class GhostEnemy : MonoBehaviour
         currentWaypoint = waypointA;
         currentRotation = rotationA;
 
-        initialPosition = new Vector3(waypointA.position.x, transform.position.y, waypointA.position.z);
+        if (movePatrol)
+        {
+            initialPosition = new Vector3(waypointA.position.x, transform.position.y, waypointA.position.z);
+        }
+        else
+        {
+            initialPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        }
+
         initialRotation = transform.rotation.eulerAngles;
     }
 

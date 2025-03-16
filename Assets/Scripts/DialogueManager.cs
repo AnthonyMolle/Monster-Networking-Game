@@ -166,9 +166,9 @@ public class DialogueManager : MonoBehaviour
             }
         });
 
-        currentStory.BindExternalFunction("ActivateInternalDialogue", (int index) => 
+        currentStory.BindExternalFunction("ActivateInternalDialogue", (string index) => 
         {
-            internalDialogues[index].Activate();
+            internalDialogues[int.Parse(index)].Activate();
         });
     }
 
