@@ -146,7 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be87b6f81889fed4f8be7f3717bc9ae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particles: {fileID: 0}
+  particles: {fileID: 5560722505231181031, guid: 469418e3e7486e04fb0a10ed8348f01a,
+    type: 3}
   explosionRadius: 5
   explosionLayers:
     serializedVersion: 2
